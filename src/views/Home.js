@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "@images/squid.png";
 import GameInput from "@components/GameInput.js";
 import GameButton from "@components/GameButton.js";
 
 function Home() {
   const [username, setUsername] = useState("");
+  const navigate = useNavigate();
 
   function sendDataToParent(e) {
     setUsername(e.target.value);
@@ -13,6 +15,7 @@ function Home() {
 
   function handleClick() {
     console.log("Username on click", username);
+    navigate("/game");
   }
 
   return (
@@ -23,7 +26,7 @@ function Home() {
       </header>
       <div className="App-body">
         <GameInput sendDataToParent={sendDataToParent} />
-        <GameButton title="JOIN" onClick={handleClick} />
+        <GameButton buttonType="Home-button" title="JOIN" onClick={handleClick} />
       </div>
     </div>
   );
