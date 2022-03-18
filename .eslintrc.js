@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
     jest: true,
-    node: true
+    node: true,
   },
   extends: ["eslint:recommended", "plugin:react/recommended"],
   parserOptions: {
@@ -14,7 +14,11 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react"],
-  rules: {},
+  rules: {
+    "linebreak-style": ["error", "unix"],
+    quotes: ["error", "double"],
+    semi: ["error", "always"],
+  },
   settings: {
     react: {
       version: "detect",
