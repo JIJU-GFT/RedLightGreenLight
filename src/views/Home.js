@@ -10,12 +10,10 @@ function Home() {
 
   function sendDataToParent(e) {
     setUsername(e.target.value);
-    console.log("User", username);
   }
 
   function handleClick() {
-    console.log("Username on click", username);
-    navigate("/game");
+    navigate("/game", { state: { username: username } });
   }
 
   return (
@@ -26,7 +24,11 @@ function Home() {
       </header>
       <div className="App-body">
         <GameInput sendDataToParent={sendDataToParent} />
-        <GameButton buttonType="Home-button" title="JOIN" onClick={handleClick} />
+        <GameButton
+          buttonType="Home-button"
+          title="JOIN"
+          onClick={handleClick}
+        />
       </div>
     </div>
   );
