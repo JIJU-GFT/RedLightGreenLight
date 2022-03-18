@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/RedLightGreenLight/static/css/main.073c9b0a.css",
-    "main.js": "/RedLightGreenLight/static/js/main.01a3225c.js",
+    "main.js": "/RedLightGreenLight/static/js/main.c04abd23.js",
     "static/js/377.e8628f72.chunk.js": "/RedLightGreenLight/static/js/377.e8628f72.chunk.js",
     "service-worker.js": "/RedLightGreenLight/service-worker.js",
     "static/media/squid.png": "/RedLightGreenLight/static/media/squid.b11f57a4f5eb93147b4f.png",
     "index.html": "/RedLightGreenLight/index.html",
     "main.073c9b0a.css.map": "/RedLightGreenLight/static/css/main.073c9b0a.css.map",
-    "main.01a3225c.js.map": "/RedLightGreenLight/static/js/main.01a3225c.js.map",
+    "main.c04abd23.js.map": "/RedLightGreenLight/static/js/main.c04abd23.js.map",
     "377.e8628f72.chunk.js.map": "/RedLightGreenLight/static/js/377.e8628f72.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.01a3225c.js"
+    "static/js/main.c04abd23.js"
   ]
 }
