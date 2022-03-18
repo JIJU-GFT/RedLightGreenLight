@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "@images/squid.png";
+import redLight from "@images/redlight.png";
+import greenLight from "@images/greenlight.png";
 import GameButton from "@components/GameButton.js";
 import PropTypes from "prop-types";
 
@@ -15,7 +16,8 @@ function Game({username}) {
   return (
     <div className="Home">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={redLight} className="App-logo" alt="logo" />
+        <img src={greenLight} className="App-logo" alt="logo" />
         <h2>This is the game screen, {username} </h2>
       </header>
       <div className="Game-body">
