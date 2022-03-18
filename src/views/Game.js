@@ -21,7 +21,7 @@ function Game() {
       setScore(1);
     } else if (lastClicked.localeCompare(step) === 0) {
       setLastClicked("none");
-      setScore(0);
+      setScore(previousScore => previousScore - 1);
     } else {
       setLastClicked(step);
       setScore((prevScore) => prevScore + 1);
