@@ -1,7 +1,7 @@
 // STYLE VARIABLES
 $primary-color: #0e2143;
 $secondary-color: #d9ecfa;
-$tertiary-color: #FFF;
+$tertiary-color: #fff;
 
 body {
   margin: 0;
@@ -40,6 +40,25 @@ body {
   min-height: 15vh;
 }
 
+.Game-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 15vh;
+}
+
+.Game-button {
+  min-width: 40vw;
+  min-height: 5vh;
+  border-radius: 5px;
+  background-color: $primary-color;
+  color: $secondary-color;
+  &:active {
+    background-color: rgba($primary-color, 0.6);
+  }
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -52,13 +71,13 @@ body {
   box-sizing: border-box;
 }
 
-.App-button {
+.Home-button {
   min-width: 74.2vw;
   min-height: 5vh;
   border-radius: 5px;
   background-color: $primary-color;
   color: $secondary-color;
-  &:active{
+  &:active {
     background-color: rgba($primary-color, 0.6);
   }
 }
