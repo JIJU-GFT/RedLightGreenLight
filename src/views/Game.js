@@ -1,10 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import redLight from "@images/redlight.png";
 import greenLight from "@images/greenlight.png";
 
 import GameButton from "@components/GameButton.js";
 import GameService from "@services/gameService.js";
+// import { useNavigate } from "react-router-dom";
+import { withRouter } from "../services/withRouter";
 
 // Game view
 class Game extends React.Component {
@@ -21,6 +24,7 @@ class Game extends React.Component {
     // We bind the class functions so they can be accessible
     this.handleClick = this.handleClick.bind(this);
     this.saveGame = this.saveGame.bind(this);
+    this.navigate = this.navigate.bind(this);
   }
 
   // We use the lifecycle hook to load the saved scores and game state
@@ -76,6 +80,10 @@ class Game extends React.Component {
     localStorage.setItem(this.state.username, JSON.stringify(userData));
   }
 
+  navigate(path) {
+    this.props.navigate(path);
+  }
+
   render() {
     return (
       <div className="Home">
@@ -83,7 +91,9 @@ class Game extends React.Component {
           <GameButton
             title="Exit"
             buttonType="Game-exit-button"
-            onClick={() => {}}
+            onClick={() => {
+              this.navigate("/RedLightGreenLight");
+            }}
           />
         </div>
         <header className="App-header">
@@ -111,4 +121,13 @@ class Game extends React.Component {
   }
 }
 
-export default Game;
+Game.propTypes = {
+  navigate: PropTypes.func.isRequired,
+};
+
+export default withRouter(Game);
+//  function GameWithRouter(props) {
+//   const navigate = useNavigate();
+
+//   return <Game {...props} navigate={navigate} />;
+// }
