@@ -18,8 +18,8 @@ function Home() {
 
   // Handles navigation on JOIN button, storing the username in localStorage
   function handleClick() {
-    if (username.length >= 3) {
-      window.localStorage.setItem("username", username);
+    if (username.trim().length >= 3) {
+      window.localStorage.setItem("username", username.trim());
       navigate("/game");
     }
   }
@@ -38,6 +38,7 @@ function Home() {
           title="JOIN"
           onClick={handleClick}
         />
+        <h5>v 1.0</h5>
       </div>
     </div>
   );
