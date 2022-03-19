@@ -1,7 +1,10 @@
 import React from "react";
+
 import redLight from "@images/redlight.png";
 import greenLight from "@images/greenlight.png";
+
 import GameButton from "@components/GameButton.js";
+import GameService from "@services/gameService.js";
 
 // Game view
 class Game extends React.Component {
@@ -11,6 +14,7 @@ class Game extends React.Component {
     this.state = {
       username: localStorage.getItem("username"),
       score: 0,
+      highScore: 0,
       lastClicked: "none",
     };
 
@@ -21,38 +25,45 @@ class Game extends React.Component {
 
   // We use the lifecycle hook to load the saved scores and game state
   componentDidMount() {
-    var localScore = localStorage.getItem(this.state.username)
+    var localUserData = localStorage.getItem(this.state.username);
+
+    var localScore = localUserData
       ? JSON.parse(localStorage.getItem(this.state.username)).score
       : 0;
 
-    this.setState({ score: localScore });
+    var localHighestScore = localUserData
+      ? JSON.parse(localStorage.getItem(this.state.username)).highScore
+      : 0;
+
+    this.setState({ score: localScore, highScore: localHighestScore });
   }
 
   //  We use the lifecycle hook to store the data when the game is updated
   componentDidUpdate() {
+    var service = new GameService(this.state.score);
+    service.timer();
     this.saveGame();
   }
 
   // Logic to handle the user's clicks
   handleClick(buttonPressed) {
     let step = buttonPressed == 0 ? "Left" : "Right";
+    let score = this.state.score;
+    let highest = this.state.highScore;
 
-    if (this.state.lastClicked === "none") {
-      this.setState((prevState) => ({
-        lastClicked: step,
-        score: prevState.score + 1,
-      }));
-    } else if (
-      this.state.lastClicked.localeCompare(step) === 0 &&
-      this.state.score > 0
-    ) {
-      this.setState((prevState) => ({ score: prevState.score - 1 }));
-    } else {
-      this.setState((prevState) => ({
-        lastClicked: step,
-        score: prevState.score + 1,
-      }));
+    this.state.lastClicked.localeCompare(step) === 0 && this.state.score > 0
+      ? score--
+      : score++;
+
+    if (score > highest) {
+      highest = score;
     }
+
+    this.setState({
+      lastClicked: step,
+      score: score,
+      highScore: highest,
+    });
   }
 
   // We store the current game state data in localStorage
@@ -60,6 +71,7 @@ class Game extends React.Component {
     let userData = {
       username: this.state.username,
       score: this.state.score,
+      highScore: this.state.highScore,
     };
     localStorage.setItem(this.state.username, JSON.stringify(userData));
   }
@@ -67,9 +79,17 @@ class Game extends React.Component {
   render() {
     return (
       <div className="Home">
+        <div className="Game-header">
+          <GameButton
+            title="Exit"
+            buttonType="Game-exit-button"
+            onClick={() => {}}
+          />
+        </div>
         <header className="App-header">
           <img src={redLight} className="App-logo" alt="logo" />
           <img src={greenLight} className="App-logo" alt="logo" />
+          <h3>Highest Score: {this.state.highScore}.</h3>
           <h3>This is the game screen, {this.state.username}.</h3>
           <h3>Score: {this.state.score}.</h3>
           <h3>Last clicked: {this.state.lastClicked}.</h3>
