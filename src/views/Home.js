@@ -13,7 +13,11 @@ function Home() {
   }
 
   function handleClick() {
-    navigate("/game", { state: { username: username } });
+    if (username.length > 0) {
+      navigate("/game", { state: { username: username } });
+    } else {
+      alert("Please, type in a username.");
+    }
   }
 
   return (
@@ -25,6 +29,7 @@ function Home() {
       <div className="App-body">
         <GameInput sendDataToParent={sendDataToParent} />
         <GameButton
+          disabled={username.length <= 0}
           buttonType="Home-button"
           title="JOIN"
           onClick={handleClick}

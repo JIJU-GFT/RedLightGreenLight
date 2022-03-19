@@ -80,6 +80,9 @@ body {
   &:active {
     background-color: rgba($primary-color, 0.6);
   }
+  &:disabled {
+    background-color: rgba($primary-color, 0.4);
+  }
 }
 
 @keyframes App-logo-spin {
