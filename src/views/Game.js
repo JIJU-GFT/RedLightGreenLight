@@ -3,24 +3,45 @@ import redLight from "@images/redlight.png";
 import greenLight from "@images/greenlight.png";
 import GameButton from "@components/GameButton.js";
 
+// Game view
 class Game extends React.Component {
   constructor(props) {
     super(props);
+    // We initialize the state
     this.state = {
       username: localStorage.getItem("username"),
-      score: localStorage.getItem(this.username)
-        ? JSON.parse(localStorage.getItem(this.username)).score
-        : 0,
+      score: 0,
       lastClicked: "none",
     };
+
+    // We bind the class functions so they can be accessible
     this.handleClick = this.handleClick.bind(this);
+    this.saveGame = this.saveGame.bind(this);
   }
 
+  // We use the lifecycle hook to load the saved scores and game state
+  componentDidMount() {
+    var localScore = localStorage.getItem(this.state.username)
+      ? JSON.parse(localStorage.getItem(this.state.username)).score
+      : 0;
+
+    this.setState({ score: localScore });
+  }
+
+  //  We use the lifecycle hook to store the data when the game is updated
+  componentDidUpdate() {
+    this.saveGame();
+  }
+
+  // Logic to handle the user's clicks
   handleClick(buttonPressed) {
     let step = buttonPressed == 0 ? "Left" : "Right";
 
     if (this.state.lastClicked === "none") {
-      this.setState({ lastClicked: step, score: 1 });
+      this.setState((prevState) => ({
+        lastClicked: step,
+        score: prevState.score + 1,
+      }));
     } else if (
       this.state.lastClicked.localeCompare(step) === 0 &&
       this.state.score > 0
@@ -34,9 +55,16 @@ class Game extends React.Component {
     }
   }
 
+  // We store the current game state data in localStorage
+  saveGame() {
+    let userData = {
+      username: this.state.username,
+      score: this.state.score,
+    };
+    localStorage.setItem(this.state.username, JSON.stringify(userData));
+  }
+
   render() {
-    console.log(this.state.username, this.state.score);
-    console.log("Step", this.state.lastClicked);
     return (
       <div className="Home">
         <header className="App-header">
