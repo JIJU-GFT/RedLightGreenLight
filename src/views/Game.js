@@ -6,7 +6,6 @@ import greenLight from "@images/greenlight.png";
 
 import GameButton from "@components/GameButton.js";
 import GameService from "@services/gameService.js";
-// import { useNavigate } from "react-router-dom";
 import { withRouter } from "../services/withRouter";
 
 // Game view
@@ -126,8 +125,3 @@ Game.propTypes = {
 };
 
 export default withRouter(Game);
-//  function GameWithRouter(props) {
-//   const navigate = useNavigate();
-
-//   return <Game {...props} navigate={navigate} />;
-// }
