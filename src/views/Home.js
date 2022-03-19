@@ -4,16 +4,22 @@ import logo from "@images/squid.png";
 import GameInput from "@components/GameInput.js";
 import GameButton from "@components/GameButton.js";
 
+// Home view 
 function Home() {
   const [username, setUsername] = useState("");
+  const [validUsername, setValidUsername] = useState(false);
   const navigate = useNavigate();
 
   function sendDataToParent(e) {
     setUsername(e.target.value);
+    e.target.value.length >= 3 ? setValidUsername(true) : setValidUsername(false);
   }
 
   function handleClick() {
-    navigate("/game", { state: { username: username } });
+    if (username.length >= 3) {
+      window.localStorage.setItem("username", username);
+      navigate("/game");
+    }
   }
 
   return (
@@ -25,6 +31,7 @@ function Home() {
       <div className="App-body">
         <GameInput sendDataToParent={sendDataToParent} />
         <GameButton
+          disabled={!validUsername}
           buttonType="Home-button"
           title="JOIN"
           onClick={handleClick}
