@@ -10,11 +10,13 @@ function Home() {
   const [validUsername, setValidUsername] = useState(false);
   const navigate = useNavigate();
 
-  function sendDataToParent(e) {
+  // Updates the username value and validates it's length
+  function updateUsername(e) {
     setUsername(e.target.value);
     e.target.value.length >= 3 ? setValidUsername(true) : setValidUsername(false);
   }
 
+  // Handles navigation on JOIN button, storing the username in localStorage
   function handleClick() {
     if (username.length >= 3) {
       window.localStorage.setItem("username", username);
@@ -29,7 +31,7 @@ function Home() {
         <h2>Create a new player</h2>
       </header>
       <div className="App-body">
-        <GameInput sendDataToParent={sendDataToParent} />
+        <GameInput sendDataToParent={updateUsername} />
         <GameButton
           disabled={!validUsername}
           buttonType="Home-button"
