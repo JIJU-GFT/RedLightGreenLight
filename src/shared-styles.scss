@@ -32,6 +32,13 @@ body {
   padding-top: 10vh;
 }
 
+.Game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 1vh;
+}
+
 .App-body {
   display: flex;
   flex-direction: column;
@@ -54,6 +61,19 @@ body {
   border-radius: 5px;
   background-color: $primary-color;
   color: $secondary-color;
+  &:active {
+    background-color: rgba($primary-color, 0.6);
+  }
+}
+
+.Game-exit-button {
+  min-width: 15vw;
+  min-height: 5vh;
+  margin: 0 1vw 0 0;
+  text-align: center;
+  border: none;
+  color: $secondary-color;
+  background-color: #0e2143;
   &:active {
     background-color: rgba($primary-color, 0.6);
   }
