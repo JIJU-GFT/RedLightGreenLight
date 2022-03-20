@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/RedLightGreenLight/static/css/main.92aae1fe.css",
-    "main.js": "/RedLightGreenLight/static/js/main.a34caadf.js",
+    "main.js": "/RedLightGreenLight/static/js/main.5c4bbb39.js",
     "static/js/377.e8628f72.chunk.js": "/RedLightGreenLight/static/js/377.e8628f72.chunk.js",
     "service-worker.js": "/RedLightGreenLight/service-worker.js",
     "static/media/redlight.png": "/RedLightGreenLight/static/media/redlight.145beaa771ebad23fdd3.png",
@@ -9,11 +9,11 @@
     "static/media/squid.png": "/RedLightGreenLight/static/media/squid.b11f57a4f5eb93147b4f.png",
     "index.html": "/RedLightGreenLight/index.html",
     "main.92aae1fe.css.map": "/RedLightGreenLight/static/css/main.92aae1fe.css.map",
-    "main.a34caadf.js.map": "/RedLightGreenLight/static/js/main.a34caadf.js.map",
+    "main.5c4bbb39.js.map": "/RedLightGreenLight/static/js/main.5c4bbb39.js.map",
     "377.e8628f72.chunk.js.map": "/RedLightGreenLight/static/js/377.e8628f72.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.92aae1fe.css",
-    "static/js/main.a34caadf.js"
+    "static/js/main.5c4bbb39.js"
   ]
 }
