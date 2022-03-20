@@ -23,7 +23,6 @@ class Game extends React.Component {
     // We bind the class functions so they can be accessible
     this.handleClick = this.handleClick.bind(this);
     this.saveGame = this.saveGame.bind(this);
-    this.navigate = this.navigate.bind(this);
   }
 
   // We use the lifecycle hook to load the saved scores and game state
@@ -79,10 +78,6 @@ class Game extends React.Component {
     localStorage.setItem(this.state.username, JSON.stringify(userData));
   }
 
-  navigate(path) {
-    this.props.navigate(path);
-  }
-
   render() {
     return (
       <div className="Home">
@@ -91,7 +86,7 @@ class Game extends React.Component {
             title="Exit"
             buttonType="Game-exit-button"
             onClick={() => {
-              this.navigate("/RedLightGreenLight");
+              this.props.navigate("/RedLightGreenLight");
             }}
           />
         </div>
