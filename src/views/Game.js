@@ -35,13 +35,9 @@ class Game extends React.Component {
       localStorage.getItem(this.state.username) &&
       JSON.parse(localStorage.getItem(this.state.username));
 
-    console.log("LocalUserData", localUserData.score);
-
     var localScore = localUserData ? localUserData.score : 0;
     var localHighestScore = localUserData ? localUserData.highScore : 0;
     var localTrafficLightState = localUserData ? localUserData.isGreen : true;
-
-    console.log("localScore", localScore);
 
     this.setState({
       score: localScore,
@@ -49,15 +45,13 @@ class Game extends React.Component {
       isGreen: localTrafficLightState,
     });
 
-    console.log("onMount", this.state.score);
-    service = new GameService(this.state.score, localTrafficLightState);
+    service = new GameService(localScore, localTrafficLightState);
     window.addEventListener("itemInserted", (e) => this.storageChanged(e));
   }
 
   //  We use the lifecycle hook to store the data when the game is updated
   componentDidUpdate(prevProps, prevState) {
-    // We compare the previous state with the current one to prevent the timer
-    // to trigger on each step due to Reacts lifecycle design
+    // We compare previous and current state to prevent unexpected triggers due to React lifecycle
     if (prevState.isGreen != this.state.isGreen) {
       this.state.isGreen ? service.startGreenTimer() : service.startRedTimer();
     }
@@ -98,11 +92,15 @@ class Game extends React.Component {
       highest = score;
     }
 
+    // Updte score in store
     this.setState({
       lastClicked: step,
       score: score,
       highScore: highest,
     });
+
+    // Update score in service
+    service.setScore(score);
   }
 
   // We store the current game state data in localStorage
@@ -136,6 +134,10 @@ class Game extends React.Component {
             }}
           />
         </div>
+        <center>
+          <h3>Hi, {this.state.username}.</h3>
+          <h3>Highest Score: {this.state.highScore}.</h3>
+        </center>
         <header className="App-header">
           {this.state.isGreen ? (
             <img src={greenLight} className="App-logo" alt="logo" />
@@ -144,11 +146,7 @@ class Game extends React.Component {
           )}
         </header>
         <center>
-          <h3>Seconds: {this.state.seconds}</h3>
-          <h3>Highest Score: {this.state.highScore}.</h3>
-          <h3>This is the game screen, {this.state.username}.</h3>
           <h3>Score: {this.state.score}.</h3>
-          <h3>Last clicked: {this.state.lastClicked}.</h3>
         </center>
         <div className="Game-body">
           <GameButton
