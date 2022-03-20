@@ -1,26 +1,31 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import logo from "@images/squid.png";
+
 import GameInput from "@components/GameInput.js";
 import GameButton from "@components/GameButton.js";
+import GameText from "@components/GameText.js";
 
-// Home view 
+// Home view
 function Home() {
   const [username, setUsername] = useState("");
-  const [validUsername, setValidUsername] = useState(false);
+  const [validUsername, setValidUsername] = useState(true);
   const navigate = useNavigate();
 
   // Updates the username value and validates it's length
   function updateUsername(e) {
-    setUsername(e.target.value);
-    e.target.value.length >= 3 ? setValidUsername(true) : setValidUsername(false);
+    setUsername(e.target.value.trim());
   }
 
   // Handles navigation on JOIN button, storing the username in localStorage
   function handleClick() {
-    if (username.trim().length >= 3) {
+    if (username.length >= 3) {
       window.localStorage.setItem("username", username.trim());
       navigate("/game");
+      setValidUsername(true);
+    } else {
+      setValidUsername(false);
     }
   }
 
@@ -33,12 +38,17 @@ function Home() {
       <div className="App-body">
         <GameInput sendDataToParent={updateUsername} />
         <GameButton
-          disabled={!validUsername}
           buttonType="Home-button"
           title="JOIN"
           onClick={handleClick}
         />
-        <h5>v 1.0</h5>
+        {!validUsername && (
+          <GameText
+            text="Username must not be blank and should be at least 3 characters long."
+            textStyles="Error-text"
+          />
+        )}
+        <h5>v 1.2</h5>
       </div>
     </div>
   );
