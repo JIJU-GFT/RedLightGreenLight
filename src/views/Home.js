@@ -33,9 +33,11 @@ function Home() {
     <div className="Home">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h2>Create a new player</h2>
       </header>
-      <div className="App-body">
+      <center>
+        <h2>Create a new player</h2>
+      </center>
+      <div className="Home-body">
         <GameInput sendDataToParent={updateUsername} />
         <GameButton
           buttonType="Home-button"

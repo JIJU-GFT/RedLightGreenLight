@@ -93,11 +93,13 @@ class Game extends React.Component {
         <header className="App-header">
           <img src={redLight} className="App-logo" alt="logo" />
           <img src={greenLight} className="App-logo" alt="logo" />
+        </header>
+        <center>
           <h3>Highest Score: {this.state.highScore}.</h3>
           <h3>This is the game screen, {this.state.username}.</h3>
           <h3>Score: {this.state.score}.</h3>
           <h3>Last clicked: {this.state.lastClicked}.</h3>
-        </header>
+        </center>
         <div className="Game-body">
           <GameButton
             title="Left"
