@@ -29,7 +29,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  padding-top: 10vh;
+  padding-top: 1vh;
 }
 
 .Game-header {
@@ -104,6 +104,12 @@ body {
   &:disabled {
     background-color: rgba($primary-color, 0.4);
   }
+}
+
+.Error-text {
+  font-size: 0.75em;
+  text-align: center;
+  color: red;
 }
 
 @keyframes App-logo-spin {
