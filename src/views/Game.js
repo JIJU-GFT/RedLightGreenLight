@@ -8,6 +8,8 @@ import GameButton from "@components/GameButton.js";
 import GameService from "@services/gameService.js";
 import { withRouter } from "../services/withRouter";
 
+var service;
+
 // Game view
 class Game extends React.Component {
   constructor(props) {
@@ -18,11 +20,13 @@ class Game extends React.Component {
       score: 0,
       highScore: 0,
       lastClicked: "none",
+      isGreen: localStorage.getItem("greenLight") || false,
     };
 
     // We bind the class functions so they can be accessible
     this.handleClick = this.handleClick.bind(this);
     this.saveGame = this.saveGame.bind(this);
+    this.storageChanged = this.storageChanged.bind(this);
   }
 
   // We use the lifecycle hook to load the saved scores and game state
@@ -38,12 +42,13 @@ class Game extends React.Component {
       : 0;
 
     this.setState({ score: localScore, highScore: localHighestScore });
+    service = new GameService(this.state.score);
+    service.timer();
+    window.addEventListener("itemInserted", (e) => this.storageChanged(e));
   }
 
   //  We use the lifecycle hook to store the data when the game is updated
   componentDidUpdate() {
-    var service = new GameService(this.state.score);
-    service.timer();
     this.saveGame();
   }
 
@@ -53,9 +58,13 @@ class Game extends React.Component {
     let score = this.state.score;
     let highest = this.state.highScore;
 
-    this.state.lastClicked.localeCompare(step) === 0 && this.state.score > 0
-      ? score--
-      : score++;
+    if (this.state.isGreen) {
+      this.state.lastClicked.localeCompare(step) === 0 && this.state.score > 0
+        ? score--
+        : score++;
+    } else {
+      score = 0;
+    }
 
     if (score > highest) {
       highest = score;
@@ -78,6 +87,14 @@ class Game extends React.Component {
     localStorage.setItem(this.state.username, JSON.stringify(userData));
   }
 
+  // Listen to the trafficLight status in localStorage
+  storageChanged(e) {
+    var eventKey = e.key;
+    if (eventKey.localeCompare("greenLight") == 0) {
+      this.setState({ isGreen: e.value });
+    }
+  }
+
   render() {
     return (
       <div className="Home">
@@ -91,10 +108,14 @@ class Game extends React.Component {
           />
         </div>
         <header className="App-header">
-          <img src={redLight} className="App-logo" alt="logo" />
-          <img src={greenLight} className="App-logo" alt="logo" />
+          {service && service.isTimerOn ? (
+            <img src={greenLight} className="App-logo" alt="logo" />
+          ) : (
+            <img src={redLight} className="App-logo" alt="logo" />
+          )}
         </header>
         <center>
+          <h3>Seconds: {this.state.seconds}</h3>
           <h3>Highest Score: {this.state.highScore}.</h3>
           <h3>This is the game screen, {this.state.username}.</h3>
           <h3>Score: {this.state.score}.</h3>
