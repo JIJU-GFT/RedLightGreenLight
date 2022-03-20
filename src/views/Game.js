@@ -43,13 +43,18 @@ class Game extends React.Component {
 
     this.setState({ score: localScore, highScore: localHighestScore });
     service = new GameService(this.state.score);
-    service.timer();
+    service.startTimer();
     window.addEventListener("itemInserted", (e) => this.storageChanged(e));
   }
 
   //  We use the lifecycle hook to store the data when the game is updated
   componentDidUpdate() {
     this.saveGame();
+  }
+
+  componentWillUnmount() {
+    console.log("Will unmount");
+    service.stopTimer();
   }
 
   // Logic to handle the user's clicks
