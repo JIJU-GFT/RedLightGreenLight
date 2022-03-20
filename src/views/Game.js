@@ -35,9 +35,13 @@ class Game extends React.Component {
       localStorage.getItem(this.state.username) &&
       JSON.parse(localStorage.getItem(this.state.username));
 
+    console.log("LocalUserData", localUserData.score);
+
     var localScore = localUserData ? localUserData.score : 0;
     var localHighestScore = localUserData ? localUserData.highScore : 0;
     var localTrafficLightState = localUserData ? localUserData.isGreen : true;
+
+    console.log("localScore", localScore);
 
     this.setState({
       score: localScore,
@@ -45,17 +49,35 @@ class Game extends React.Component {
       isGreen: localTrafficLightState,
     });
 
+    console.log("onMount", this.state.score);
     service = new GameService(this.state.score, localTrafficLightState);
     window.addEventListener("itemInserted", (e) => this.storageChanged(e));
   }
 
   //  We use the lifecycle hook to store the data when the game is updated
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
+    // We compare the previous state with the current one to prevent the timer
+    // to trigger on each step due to Reacts lifecycle design
+    if (prevState.isGreen != this.state.isGreen) {
+      this.state.isGreen ? service.startGreenTimer() : service.startRedTimer();
+    }
+
+    /**
+     * ASK IF ITS REQUIRED TO STOP THE GAME AFTER LOSING ALL THE POINTS.
+     * IF THE GAME SHOULD STOP, UNCOMMENT THE NEXT CONDITIONAL
+     *
+     * CURRENTLY THE GAME CONTINUES AFTER LOSING ALL THE POINTS.
+     */
+    // if (!prevState.isGreen && !this.state.isGreen) {
+    //   service.stopAllTimers();
+    // }
+
     this.saveGame();
   }
 
+  // We stop all timers on exit or close
   componentWillUnmount() {
-    service.stopTimer();
+    service.stopAllTimers();
   }
 
   // Logic to handle the user's clicks
@@ -96,7 +118,6 @@ class Game extends React.Component {
 
   // Listen to the trafficLight status in localStorage
   storageChanged(e) {
-    // console.log("Storage changed", e);
     var eventKey = e.key;
     if (eventKey.localeCompare("greenLight") == 0) {
       this.setState({ isGreen: e.value });
