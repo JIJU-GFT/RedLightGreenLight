@@ -86,7 +86,7 @@ class Game extends React.Component {
             title="Exit"
             buttonType="Game-exit-button"
             onClick={() => {
-              this.props.navigate("/RedLightGreenLight");
+              this.props.navigate("/Home");
             }}
           />
         </div>

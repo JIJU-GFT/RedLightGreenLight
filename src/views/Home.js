@@ -22,7 +22,7 @@ function Home() {
   function handleClick() {
     if (username.length >= 3) {
       window.localStorage.setItem("username", username.trim());
-      navigate("/game");
+      navigate("/Game");
       setValidUsername(true);
     } else {
       setValidUsername(false);
@@ -48,7 +48,7 @@ function Home() {
             textStyles="Error-text"
           />
         )}
-        <h5>v 1.2</h5>
+        <h5>v 1.2.2</h5>
       </div>
     </div>
   );
