@@ -20,7 +20,7 @@ class Game extends React.Component {
       score: 0,
       highScore: 0,
       lastClicked: "none",
-      isGreen: localStorage.getItem("greenLight") || false,
+      isGreen: true,
     };
 
     // We bind the class functions so they can be accessible
@@ -31,19 +31,21 @@ class Game extends React.Component {
 
   // We use the lifecycle hook to load the saved scores and game state
   componentDidMount() {
-    var localUserData = localStorage.getItem(this.state.username);
+    var localUserData =
+      localStorage.getItem(this.state.username) &&
+      JSON.parse(localStorage.getItem(this.state.username));
 
-    var localScore = localUserData
-      ? JSON.parse(localStorage.getItem(this.state.username)).score
-      : 0;
+    var localScore = localUserData ? localUserData.score : 0;
+    var localHighestScore = localUserData ? localUserData.highScore : 0;
+    var localTrafficLightState = localUserData ? localUserData.isGreen : true;
 
-    var localHighestScore = localUserData
-      ? JSON.parse(localStorage.getItem(this.state.username)).highScore
-      : 0;
+    this.setState({
+      score: localScore,
+      highScore: localHighestScore,
+      isGreen: localTrafficLightState,
+    });
 
-    this.setState({ score: localScore, highScore: localHighestScore });
-    service = new GameService(this.state.score);
-    service.startTimer();
+    service = new GameService(this.state.score, localTrafficLightState);
     window.addEventListener("itemInserted", (e) => this.storageChanged(e));
   }
 
@@ -53,7 +55,6 @@ class Game extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log("Will unmount");
     service.stopTimer();
   }
 
@@ -88,12 +89,14 @@ class Game extends React.Component {
       username: this.state.username,
       score: this.state.score,
       highScore: this.state.highScore,
+      isGreen: this.state.isGreen,
     };
     localStorage.setItem(this.state.username, JSON.stringify(userData));
   }
 
   // Listen to the trafficLight status in localStorage
   storageChanged(e) {
+    // console.log("Storage changed", e);
     var eventKey = e.key;
     if (eventKey.localeCompare("greenLight") == 0) {
       this.setState({ isGreen: e.value });
@@ -113,7 +116,7 @@ class Game extends React.Component {
           />
         </div>
         <header className="App-header">
-          {service && service.isTimerOn ? (
+          {this.state.isGreen ? (
             <img src={greenLight} className="App-logo" alt="logo" />
           ) : (
             <img src={redLight} className="App-logo" alt="logo" />
