@@ -1,33 +1,39 @@
 class GameService {
   constructor(score) {
     this.score = score;
-    this.max = 10;
-    this.min = 2;
-    this.ticks = 0;
+    this.max = 10000;
+    this.min = 2000;
+
     this.timerOn = true;
-    this.myInterval = window.setInterval(() => this.startTimer(), 1000);
+
+    this.timeoutGreenLight;
+    this.timeoutRedLight = 3000;
+
+    this.init();
+    this.greenLightTimer = window.setTimeout(
+      () => this.startTimer(),
+      this.timeoutGreenLight
+    );
   }
 
-  get isTimerOn() {
-    return this.timerOn;
-  }
-
-  stopTimer() {
-    window.clearInterval(this.myInterval);
-  }
-
-  // Timer function to handle the interval and traffic light status
-  startTimer() {
-    var computedMilliseconds = this.max * 1000 - this.score * 100;
-    var maxTime = computedMilliseconds < 2000 ? 2 : computedMilliseconds / 1000;
-    this.ticks++;
-    console.log("Seconds", this.ticks);
-    localStorage.setItem("greenLight", true);
-    if (this.ticks == maxTime) {
-      this.timerOn = false;
-      localStorage.setItem("greenLight", false);
-      window.clearInterval(this.myInterval);
+  // Initialize class values
+  init() {
+    this.timeoutGreenLight = this.max - this.score * 100;
+    if (this.timeoutGreenLight <= this.min) {
+      this.timeoutGreenLight = this.min;
     }
+    localStorage.setItem("greenLight", true);
+    console.log("Init store", this.timeoutGreenLight);
+  }
+
+  // Stop timer in case game view is dismounted
+  stopTimer() {
+    window.clearTimeout(this.greenLightTimer);
+  }
+
+  // Change green light status
+  changeGreenLight() {
+    localStorage.setItem("greenLight", false);
   }
 }
 
