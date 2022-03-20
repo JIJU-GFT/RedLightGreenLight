@@ -29,10 +29,17 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  padding-top: 10vh;
+  padding-top: 1vh;
 }
 
-.App-body {
+.Game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 1vh;
+}
+
+.Home-body {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,6 +66,19 @@ body {
   }
 }
 
+.Game-exit-button {
+  min-width: 15vw;
+  min-height: 5vh;
+  margin: 0 1vw 0 0;
+  text-align: center;
+  border: none;
+  color: $secondary-color;
+  background-color: #0e2143;
+  &:active {
+    background-color: rgba($primary-color, 0.6);
+  }
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -75,6 +95,7 @@ body {
   min-width: 74.2vw;
   min-height: 5vh;
   border-radius: 5px;
+  margin: 2vh;
   background-color: $primary-color;
   color: $secondary-color;
   &:active {
@@ -83,6 +104,12 @@ body {
   &:disabled {
     background-color: rgba($primary-color, 0.4);
   }
+}
+
+.Error-text {
+  font-size: 0.75em;
+  text-align: center;
+  color: red;
 }
 
 @keyframes App-logo-spin {
