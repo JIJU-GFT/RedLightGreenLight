@@ -3,7 +3,7 @@
 ## Downloading the repo
 Clone the repo using <code>git clone https://github.com/JIJU-GFT/RedLightGreenLight.git</code>.
 
-## Installing dependencies
+## Installing dependencies
 Once the repo is downloaded, head to the root of the project and run <code>npm run install</code> to install the libraries and dependencies. This might take a while.
 
 ## Running the project
