@@ -1,8 +1,9 @@
 class GameService {
-  constructor(score) {
+  constructor(score, isGreen) {
     this.score = score;
     this.max = 10000;
     this.min = 2000;
+    this.isGreenOnLoad = isGreen;
 
     this.timerOn = true;
 
@@ -11,7 +12,7 @@ class GameService {
 
     this.init();
     this.greenLightTimer = window.setTimeout(
-      () => this.startTimer(),
+      () => this.changeGreenLight(),
       this.timeoutGreenLight
     );
   }
@@ -22,8 +23,7 @@ class GameService {
     if (this.timeoutGreenLight <= this.min) {
       this.timeoutGreenLight = this.min;
     }
-    localStorage.setItem("greenLight", true);
-    console.log("Init store", this.timeoutGreenLight);
+    localStorage.setItem("greenLight", this.isGreenOnLoad);
   }
 
   // Stop timer in case game view is dismounted
