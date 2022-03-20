@@ -10,25 +10,24 @@ class GameService {
     this.timeoutGreenLight;
     this.timeoutRedLight = 3000;
 
-    // Initialize the values
-    this.init();
-  }
-
-  // Initialize class values
-  init() {
-    console.log("Score", this.score);
-    this.timeoutGreenLight = this.updateTimer();
-    if (this.timeoutGreenLight < this.min) {
-      this.timeoutGreenLight = this.min;
-    }
-
     this.isGreenOnLoad ? this.startGreenTimer() : this.startRedTimer();
   }
 
-  // Update timer according to score
+  // Update timer according to score and adding ±1500 ms variation
   updateTimer() {
-    console.log("MS", this.max - this.score * 100);
-    return this.max - this.score * 100;
+    var randomVariation = Math.round(Math.random() * 1500);
+    var isNegative = Math.random() < 0.5;
+
+    if (isNegative) {
+      randomVariation = -randomVariation;
+    }
+
+    this.timeoutGreenLight =
+      Math.max(this.max - this.score * 100, this.min) + randomVariation;
+
+    // console.log("MS Variation", randomVariation);
+    // console.log("Negative", isNegative);
+    // console.log("MS", this.timeoutGreenLight);
   }
 
   // Set the score
@@ -38,6 +37,7 @@ class GameService {
 
   // Start green timer
   startGreenTimer() {
+    this.greenLightTimer = this.updateTimer();
     this.greenLightTimer = window.setTimeout(
       () => this.changeGreenLight(),
       this.timeoutGreenLight
