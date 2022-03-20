@@ -1,2 +1,11 @@
-To run the app locally, you just need to install the dependencies with <code>npm install</code>.<br>
-The app is being built in the path <cod>/RedLightGreenLight</code>, therefore the project will be served in <code>localhost:[port]/RedLightGreenLight</code>.
+# Run the app locally
+
+## Downloading the repo
+1. Clone the repo using <code>git clone https://github.com/JIJU-GFT/RedLightGreenLight.git</code>.
+
+## Installing dependencies
+2. Once the repo is downloaded, head to the root of the project and run <code>npm run install</code> to install the libraries and dependencies. This might take a while.
+
+## Running the project
+3. When you have all the dependencies installed (you should see a new <code>node_modules</code> folder in the root folder), just run <code>npm run start</code> to serve the project locally.
+4. It should automatically open in your preferred browser. If not, check your terminal for a link similar to <code>http://localhost:[port]/RedLightGreenLight</code>.
