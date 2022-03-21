@@ -51,7 +51,7 @@ class Game extends React.Component {
     });
 
     service = new GameService(localScore, localTrafficLightState);
-    window.addEventListener('itemInserted', (e) => this.storageChanged(e));
+    window.addEventListener('itemInserted', this.storageChanged);
   }
 
   //  We use the lifecycle hook to store the data when the game is updated
@@ -66,6 +66,7 @@ class Game extends React.Component {
   // We stop all timers on exit or close
   componentWillUnmount() {
     service.stopAllTimers();
+    window.removeEventListener('itemInserted', this.storageChanged);
   }
 
   // Logic to handle the user's clicks
