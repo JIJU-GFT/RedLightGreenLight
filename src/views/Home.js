@@ -23,7 +23,7 @@ function Home() {
 
   // Handles navigation on JOIN button, storing the username in localStorage
   function handleJoinClick() {
-    if (username.length >= NUMBERS.USERNAME_LENGTH) {
+    if (username && username.length >= NUMBERS.USERNAME_LENGTH) {
       DataPersistanceService.saveUserName(username.trim());
       navigate('/Game');
       setValidUsername(true);
@@ -37,7 +37,7 @@ function Home() {
   }
 
   return (
-    <div className="Home">
+    <>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
@@ -61,7 +61,7 @@ function Home() {
         )}
         <footer>v 1.5</footer>
       </div>
-    </div>
+    </>
   );
 }
 
