@@ -75,7 +75,10 @@ class Game extends React.Component {
 
   // Logic to handle the user's clicks
   handleClick(buttonPressed) {
-    let step = buttonPressed === NUMBERS.STEP_LEFT_ID ? STRINGS.STEP_LEFT_TEXT : STRINGS.STEP_RIGHT_TEXT;
+    let step =
+      buttonPressed === NUMBERS.STEP_LEFT_ID
+        ? STRINGS.STEP_LEFT_TEXT
+        : STRINGS.STEP_RIGHT_TEXT;
     let score = this.state.score;
     let highest = this.state.highScore;
 
@@ -116,13 +119,19 @@ class Game extends React.Component {
       isGreen: this.state.isGreen,
     };
     DataPersistanceService.saveUserData(this.state.username, userData);
+    DataPersistanceService.saveHighScore(
+      this.state.username,
+      this.state.highScore
+    );
   }
 
   // Listen to the trafficLight status in localStorage
   storageChanged(e) {
-    let eventKey = e.key;
-    if (eventKey.localeCompare(STRINGS.GREEN_LIGHT) === NUMBERS.ZERO) {
-      this.setState({ isGreen: e.value });
+    if (e.key) {
+      let eventKey = e.key;
+      if (eventKey.localeCompare(STRINGS.GREEN_LIGHT) === NUMBERS.ZERO) {
+        this.setState({ isGreen: e.value });
+      }
     }
   }
 
