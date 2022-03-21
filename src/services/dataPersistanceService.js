@@ -1,12 +1,13 @@
+import { STRINGS } from '@utils/constants.js';
 class DataPersistanceService {
   // Store username
   static saveUserName(username) {
-    window.localStorage.setItem('username', username);
+    window.localStorage.setItem(STRINGS.USERNAME, username);
   }
 
   // Load username
   static loadUserName() {
-    return window.localStorage.getItem('username');
+    return window.localStorage.getItem(STRINGS.USERNAME);
   }
 
   // Save user data
@@ -21,12 +22,12 @@ class DataPersistanceService {
 
   // Save the status of the green light
   static setGreenLight(isGreen) {
-    window.localStorage.setItem('greenLight', isGreen);
+    window.localStorage.setItem(STRINGS.GREEN_LIGHT, isGreen);
   }
 
   // Load leaderboards
   static loadLeaderboard() {
-    return JSON.parse(window.localStorage.getItem('highscore_leaderboard')) || [];
+    return JSON.parse(window.localStorage.getItem(STRINGS.SCORE_LEADERBOARD)) || [];
   }
 }
 

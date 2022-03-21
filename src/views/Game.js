@@ -8,7 +8,7 @@ import GameButton from '@components/GameButton.js';
 import GameService from '@services/gameService.js';
 import { withRouter } from '../services/withRouter';
 
-import { Numbers } from '@utils/constants.js';
+import { NUMBERS, STRINGS } from '@utils/constants.js';
 import DataPersistanceService from '@services/dataPersistanceService.js';
 
 let service;
@@ -19,10 +19,10 @@ class Game extends React.Component {
     super(props);
     // We initialize the state
     this.state = {
-      username: DataPersistanceService.loadUserName('username'),
-      score: Numbers.ZERO,
-      highScore: Numbers.ZERO,
-      lastClicked: 'none',
+      username: DataPersistanceService.loadUserName(STRINGS.USERNAME),
+      score: NUMBERS.ZERO,
+      highScore: NUMBERS.ZERO,
+      lastClicked: STRINGS.NONE,
       isGreen: true,
     };
 
@@ -38,10 +38,10 @@ class Game extends React.Component {
       this.state.username
     );
 
-    let localScore = localUserData ? localUserData.score : Numbers.ZERO;
+    let localScore = localUserData ? localUserData.score : NUMBERS.ZERO;
     let localHighestScore = localUserData
       ? localUserData.highScore
-      : Numbers.ZERO;
+      : NUMBERS.ZERO;
     let localTrafficLightState = localUserData ? localUserData.isGreen : true;
 
     this.setState({
@@ -51,7 +51,7 @@ class Game extends React.Component {
     });
 
     service = new GameService(localScore, localTrafficLightState);
-    window.addEventListener('itemInserted', this.storageChanged);
+    window.addEventListener(STRINGS.ITEM_SET, this.storageChanged);
   }
 
   //  We use the lifecycle hook to store the data when the game is updated
@@ -70,26 +70,26 @@ class Game extends React.Component {
   // We stop all timers on exit or close
   componentWillUnmount() {
     service.stopAllTimers();
-    window.removeEventListener('itemInserted', this.storageChanged);
+    window.removeEventListener(STRINGS.ITEM_SET, this.storageChanged);
   }
 
   // Logic to handle the user's clicks
   handleClick(buttonPressed) {
-    let step = buttonPressed === Numbers.STEP_LEFT ? 'Left' : 'Right';
+    let step = buttonPressed === NUMBERS.STEP_LEFT_ID ? STRINGS.STEP_LEFT_TEXT : STRINGS.STEP_RIGHT_TEXT;
     let score = this.state.score;
     let highest = this.state.highScore;
 
     if (this.state.isGreen) {
       if (
-        this.state.lastClicked.localeCompare(step) === Numbers.ZERO &&
-        this.state.score > Numbers.ZERO
+        this.state.lastClicked.localeCompare(step) === NUMBERS.ZERO &&
+        this.state.score > NUMBERS.ZERO
       ) {
         score--;
       } else {
         score++;
       }
     } else {
-      score = Numbers.ZERO;
+      score = NUMBERS.ZERO;
     }
 
     if (score > highest) {
@@ -121,7 +121,7 @@ class Game extends React.Component {
   // Listen to the trafficLight status in localStorage
   storageChanged(e) {
     let eventKey = e.key;
-    if (eventKey.localeCompare('greenLight') === Numbers.ZERO) {
+    if (eventKey.localeCompare(STRINGS.GREEN_LIGHT) === NUMBERS.ZERO) {
       this.setState({ isGreen: e.value });
     }
   }
@@ -131,7 +131,7 @@ class Game extends React.Component {
       <div className="Home">
         <div className="Game-header">
           <GameButton
-            title="Exit"
+            title={STRINGS.EXIT}
             buttonType="Game-exit-button"
             onClick={() => {
               this.props.navigate('/Home');
@@ -154,14 +154,14 @@ class Game extends React.Component {
         </center>
         <div className="Game-body">
           <GameButton
-            title="Left"
+            title={STRINGS.STEP_LEFT_TEXT}
             buttonType="Game-button"
-            onClick={() => this.handleClick(Numbers.STEP_LEFT)}
+            onClick={() => this.handleClick(NUMBERS.STEP_LEFT_ID)}
           />
           <GameButton
-            title="Right"
+            title={STRINGS.STEP_RIGHT_TEXT}
             buttonType="Game-button"
-            onClick={() => this.handleClick(Numbers.STEP_RIGHT)}
+            onClick={() => this.handleClick(NUMBERS.STEP_RIGHT_ID)}
           />
         </div>
       </div>

@@ -10,7 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://cra.link/PWA
 
-import { Numbers } from '@utils/constants.js';
+import { NUMBERS } from '@utils/constants.js';
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -109,8 +109,8 @@ function checkValidServiceWorker(swUrl, config) {
       // Ensure service worker exists, and that we really are getting a JS file.
       const contentType = response.headers.get('content-type');
       if (
-        response.status === Numbers.NOTFOUND ||
-        (contentType !== null && contentType.indexOf('javascript') === Numbers.INDEX_NOT_FOUND)
+        response.status === NUMBERS.NOTFOUND ||
+        (contentType !== null && contentType.indexOf('javascript') === NUMBERS.INDEX_NOT_FOUND)
       ) {
         // No service worker found. Probably a different app. Reload the page.
         navigator.serviceWorker.ready.then((registration) => {

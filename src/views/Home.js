@@ -7,12 +7,12 @@ import GameInput from '@components/GameInput.js';
 import GameButton from '@components/GameButton.js';
 import GameText from '@components/GameText.js';
 
-import { Numbers } from '@utils/constants.js';
+import { NUMBERS, STRINGS } from '@utils/constants.js';
 import DataPersistanceService from '@services/dataPersistanceService.js';
 
 // Home view
 function Home() {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState();
   const [validUsername, setValidUsername] = useState(true);
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ function Home() {
 
   // Handles navigation on JOIN button, storing the username in localStorage
   function handleJoinClick() {
-    if (username.length >= Numbers.USERNAME_LENGTH) {
+    if (username.length >= NUMBERS.USERNAME_LENGTH) {
       DataPersistanceService.saveUserName(username.trim());
       navigate('/Game');
       setValidUsername(true);
@@ -48,19 +48,16 @@ function Home() {
         <GameInput sendDataToParent={updateUsername} />
         <GameButton
           buttonType="Home-button"
-          title="JOIN"
+          title={STRINGS.JOIN}
           onClick={handleJoinClick}
         />
         <GameButton
           buttonType="Home-button"
-          title="Scoreboard"
+          title={STRINGS.LEADERBOARD}
           onClick={handleScoreboardClick}
         />
         {!validUsername && (
-          <GameText
-            text="Username must not be blank and should be at least 3 characters long."
-            textStyles="Error-text"
-          />
+          <GameText text={STRINGS.USERNAME_INVALID} textStyles="Error-text" />
         )}
         <footer>v 1.5</footer>
       </div>
