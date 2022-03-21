@@ -10,18 +10,15 @@ import { STRINGS } from '@utils/constants.js';
 function Scoreboard() {
   const navigate = useNavigate();
   const allHighScores = DataPersistanceService.loadLeaderboard();
-  const scoreItems = [];
 
-  for (let score = 0; score < allHighScores.length; score++) {
-    scoreItems.push(allHighScores[score]);
-  }
+  console.log('all scores', allHighScores);
 
   function goBack() {
     navigate('/Home');
   }
 
   return (
-    <div className="Scoreboard">
+    <>
       <div className="Game-header">
         <GameButton
           title={STRINGS.EXIT}
@@ -29,13 +26,20 @@ function Scoreboard() {
           onClick={() => goBack()}
         />
       </div>
-      <center className="App-header">
+      <header className="App-header">
         <h1>{STRINGS.HIGH_SCORES}</h1>
-      </center>
-      {scoreItems.map((key, entry) => {
-        return <ScoreboardEntry key={key} scoreEntry={entry} />;
-      })}
-    </div>
+      </header>
+      <div className="Score-body">
+        <div className='Score-entry-title'>
+          <span className='title'>{STRINGS.PLAYER}</span>
+          <span className='title'>{STRINGS.SCORE}</span>
+        </div>
+        {allHighScores.map((entry, key) => {
+          console.log('Score entry', key, entry);
+          return <ScoreboardEntry key={key} id={key} scoreEntry={entry} />;
+        })}
+      </div>
+    </>
   );
 }
 
