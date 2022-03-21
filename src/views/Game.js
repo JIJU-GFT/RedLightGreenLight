@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import redLight from "@images/redlight.png";
-import greenLight from "@images/greenlight.png";
+import redLight from '@images/redlight.png';
+import greenLight from '@images/greenlight.png';
 
-import GameButton from "@components/GameButton.js";
-import GameService from "@services/gameService.js";
-import { withRouter } from "../services/withRouter";
+import GameButton from '@components/GameButton.js';
+import GameService from '@services/gameService.js';
+import { withRouter } from '../services/withRouter';
 
 var service;
 
@@ -16,10 +16,10 @@ class Game extends React.Component {
     super(props);
     // We initialize the state
     this.state = {
-      username: localStorage.getItem("username"),
+      username: localStorage.getItem('username'),
       score: 0,
       highScore: 0,
-      lastClicked: "none",
+      lastClicked: 'none',
       isGreen: true,
     };
 
@@ -46,7 +46,7 @@ class Game extends React.Component {
     });
 
     service = new GameService(localScore, localTrafficLightState);
-    window.addEventListener("itemInserted", (e) => this.storageChanged(e));
+    window.addEventListener('itemInserted', (e) => this.storageChanged(e));
   }
 
   //  We use the lifecycle hook to store the data when the game is updated
@@ -76,7 +76,7 @@ class Game extends React.Component {
 
   // Logic to handle the user's clicks
   handleClick(buttonPressed) {
-    let step = buttonPressed == 0 ? "Left" : "Right";
+    let step = buttonPressed == 0 ? 'Left' : 'Right';
     let score = this.state.score;
     let highest = this.state.highScore;
 
@@ -117,7 +117,7 @@ class Game extends React.Component {
   // Listen to the trafficLight status in localStorage
   storageChanged(e) {
     var eventKey = e.key;
-    if (eventKey.localeCompare("greenLight") == 0) {
+    if (eventKey.localeCompare('greenLight') == 0) {
       this.setState({ isGreen: e.value });
     }
   }
@@ -130,7 +130,7 @@ class Game extends React.Component {
             title="Exit"
             buttonType="Game-exit-button"
             onClick={() => {
-              this.props.navigate("/Home");
+              this.props.navigate('/Home');
             }}
           />
         </div>

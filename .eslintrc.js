@@ -16,7 +16,7 @@ module.exports = {
   plugins: ["react"],
   rules: {
     "linebreak-style": ["error", "unix"],
-    quotes: ["error", "double"],
+    quotes: ["error", "single"],
     semi: ["error", "always"],
   },
   settings: {

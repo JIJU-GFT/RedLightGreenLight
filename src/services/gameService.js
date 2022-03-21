@@ -70,12 +70,12 @@ class GameService {
 
   // Change green light status
   changeGreenLight() {
-    localStorage.setItem("greenLight", false);
+    localStorage.setItem('greenLight', false);
   }
 
   // Change red light status
   changeRedLight() {
-    localStorage.setItem("greenLight", true);
+    localStorage.setItem('greenLight', true);
   }
 }
 
@@ -83,7 +83,7 @@ class GameService {
 const setStorageItem = localStorage.setItem;
 
 localStorage.setItem = function (key, value) {
-  const event = new Event("itemInserted");
+  const event = new Event('itemInserted');
 
   event.key = key;
   event.value = value;

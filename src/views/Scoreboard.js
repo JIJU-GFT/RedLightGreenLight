@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import ScoreboardEntry from "@components/ScoreboardEntry.js";
-import GameButton from "@components/GameButton.js";
-import { useNavigate } from "react-router-dom";
+import ScoreboardEntry from '@components/ScoreboardEntry.js';
+import GameButton from '@components/GameButton.js';
+import { useNavigate } from 'react-router-dom';
 
 function Scoreboard() {
   const navigate = useNavigate();
   const allHighScores =
-    JSON.parse(localStorage.getItem("highscore_scoreboard")) || [];
+    JSON.parse(localStorage.getItem('highscore_scoreboard')) || [];
   const scoreItems = [];
 
   for (var score = 0; score < allHighScores.length; score++) {
@@ -15,7 +15,7 @@ function Scoreboard() {
   }
 
   function goBack() {
-    navigate("/Home");
+    navigate('/Home');
   }
 
   return (

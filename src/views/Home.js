@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import logo from "@images/squid.png";
+import logo from '@images/squid.png';
 
-import GameInput from "@components/GameInput.js";
-import GameButton from "@components/GameButton.js";
-import GameText from "@components/GameText.js";
+import GameInput from '@components/GameInput.js';
+import GameButton from '@components/GameButton.js';
+import GameText from '@components/GameText.js';
 
 // Home view
 function Home() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
   const [validUsername, setValidUsername] = useState(true);
   const navigate = useNavigate();
 
@@ -21,8 +21,8 @@ function Home() {
   // Handles navigation on JOIN button, storing the username in localStorage
   function handleJoinClick() {
     if (username.length >= 3) {
-      window.localStorage.setItem("username", username.trim());
-      navigate("/Game");
+      window.localStorage.setItem('username', username.trim());
+      navigate('/Game');
       setValidUsername(true);
     } else {
       setValidUsername(false);
@@ -30,7 +30,7 @@ function Home() {
   }
 
   function handleScoreboardClick() {
-    navigate("/Scoreboard");
+    navigate('/Scoreboard');
   }
 
   return (
@@ -48,7 +48,11 @@ function Home() {
           title="JOIN"
           onClick={handleJoinClick}
         />
-        <GameButton buttonType="Home-button" title="Scoreboard" onClick={handleScoreboardClick} />
+        <GameButton
+          buttonType="Home-button"
+          title="Scoreboard"
+          onClick={handleScoreboardClick}
+        />
         {!validUsername && (
           <GameText
             text="Username must not be blank and should be at least 3 characters long."
