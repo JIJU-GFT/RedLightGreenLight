@@ -37,7 +37,6 @@ class DataPersistanceService {
 
   // Save user highscore, replace if user already exists in leaderboard
   static saveHighScore(key, highScore) {
-
     // Load preexisting leaderboard status
     let leaderboard = this.loadLeaderboard();
 
@@ -58,9 +57,11 @@ class DataPersistanceService {
     });
 
     // If user does not exist, creates a new entry
-    if(!exists){
+    if (!exists) {
       leaderboard.push(currentHighest);
     }
+
+    leaderboard.sort((a, b) => b.highScore - a.highScore);
 
     // Stores leaderboard
     window.localStorage.setItem(
