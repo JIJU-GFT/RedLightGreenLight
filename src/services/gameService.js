@@ -1,4 +1,5 @@
 import { Numbers } from '@utils/constants.js';
+import DataPersistanceService from '@services/dataPersistanceService';
 
 class GameService {
   constructor(score, isGreen) {
@@ -17,7 +18,9 @@ class GameService {
 
   // Update timer according to score and adding ±1500 ms variation
   updateTimer() {
-    let randomVariation = Math.round(Math.random() * Numbers.GAME_TIMEOUT_VARIATION);
+    let randomVariation = Math.round(
+      Math.random() * Numbers.GAME_TIMEOUT_VARIATION
+    );
     let isNegative = Math.random() < Numbers.RANDOM_NEGATIVE;
 
     if (isNegative) {
@@ -25,11 +28,12 @@ class GameService {
     }
 
     this.timeoutGreenLight =
-      Math.max(this.max - this.score * Numbers.SCORE_MILLISECONDS, this.min) + randomVariation;
+      Math.max(this.max - this.score * Numbers.SCORE_MILLISECONDS, this.min) +
+      randomVariation;
 
-    // console.log("MS Variation", randomVariation);
-    // console.log("Negative", isNegative);
-    // console.log("MS", this.timeoutGreenLight);
+    // console.log('MS Variation', randomVariation);
+    // console.log('Negative', isNegative);
+    // console.log('MS', this.timeoutGreenLight);
   }
 
   // Set the score
@@ -72,12 +76,12 @@ class GameService {
 
   // Change green light status
   changeGreenLight() {
-    localStorage.setItem('greenLight', false);
+    DataPersistanceService.setGreenLight(false);
   }
 
   // Change red light status
   changeRedLight() {
-    localStorage.setItem('greenLight', true);
+    DataPersistanceService.setGreenLight(true);
   }
 }
 

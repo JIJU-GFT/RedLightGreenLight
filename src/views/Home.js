@@ -8,6 +8,7 @@ import GameButton from '@components/GameButton.js';
 import GameText from '@components/GameText.js';
 
 import { Numbers } from '@utils/constants.js';
+import DataPersistanceService from '@services/dataPersistanceService.js';
 
 // Home view
 function Home() {
@@ -23,7 +24,7 @@ function Home() {
   // Handles navigation on JOIN button, storing the username in localStorage
   function handleJoinClick() {
     if (username.length >= Numbers.USERNAME_LENGTH) {
-      window.localStorage.setItem('username', username.trim());
+      DataPersistanceService.saveUserName(username.trim());
       navigate('/Game');
       setValidUsername(true);
     } else {

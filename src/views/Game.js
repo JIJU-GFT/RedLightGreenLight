@@ -9,6 +9,7 @@ import GameService from '@services/gameService.js';
 import { withRouter } from '../services/withRouter';
 
 import { Numbers } from '@utils/constants.js';
+import DataPersistanceService from '@services/dataPersistanceService.js';
 
 let service;
 
@@ -18,7 +19,7 @@ class Game extends React.Component {
     super(props);
     // We initialize the state
     this.state = {
-      username: localStorage.getItem('username'),
+      username: DataPersistanceService.loadUserName('username'),
       score: Numbers.ZERO,
       highScore: Numbers.ZERO,
       lastClicked: 'none',
@@ -34,8 +35,8 @@ class Game extends React.Component {
   // We use the lifecycle hook to load the saved scores and game state
   componentDidMount() {
     let localUserData =
-      localStorage.getItem(this.state.username) &&
-      JSON.parse(localStorage.getItem(this.state.username));
+      DataPersistanceService.loadUserData(this.state.username) &&
+      JSON.parse(DataPersistanceService.loadUserData(this.state.username));
 
     let localScore = localUserData ? localUserData.score : Numbers.ZERO;
     let localHighestScore = localUserData
@@ -105,11 +106,12 @@ class Game extends React.Component {
       highScore: this.state.highScore,
       isGreen: this.state.isGreen,
     };
-    localStorage.setItem(this.state.username, JSON.stringify(userData));
+    DataPersistanceService.saveUserData(this.state.username, userData);
   }
 
   // Listen to the trafficLight status in localStorage
   storageChanged(e) {
+    console.log('Still works', e.key);
     let eventKey = e.key;
     if (eventKey.localeCompare('greenLight') === Numbers.ZERO) {
       this.setState({ isGreen: e.value });

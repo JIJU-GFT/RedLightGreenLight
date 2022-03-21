@@ -3,11 +3,11 @@ import React from 'react';
 import ScoreboardEntry from '@components/ScoreboardEntry.js';
 import GameButton from '@components/GameButton.js';
 import { useNavigate } from 'react-router-dom';
+import DataPersistanceService from '../services/dataPersistanceService';
 
 function Scoreboard() {
   const navigate = useNavigate();
-  const allHighScores =
-    JSON.parse(localStorage.getItem('highscore_scoreboard')) || [];
+  const allHighScores = DataPersistanceService.loadLeaderboard;
   const scoreItems = [];
 
   for (let score = 0; score < allHighScores.length; score++) {
