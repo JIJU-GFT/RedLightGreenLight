@@ -57,8 +57,12 @@ class Game extends React.Component {
   //  We use the lifecycle hook to store the data when the game is updated
   componentDidUpdate(prevProps, prevState) {
     // We compare previous and current state to prevent unexpected triggers due to React lifecycle
-    if (prevState.isGreen !== this.state.isGreen) {
-      this.state.isGreen ? service.startGreenTimer() : service.startRedTimer();
+    let stateHasChanged = prevState.isGreen !== this.state.isGreen;
+
+    if (stateHasChanged && this.state.isGreen) {
+      service.startGreenTimer();
+    } else if (stateHasChanged && !this.state.isGreen) {
+      service.startRedTimer();
     }
     this.saveGame();
   }
@@ -76,10 +80,14 @@ class Game extends React.Component {
     let highest = this.state.highScore;
 
     if (this.state.isGreen) {
-      this.state.lastClicked.localeCompare(step) === Numbers.ZERO &&
-      this.state.score > Numbers.ZERO
-        ? score--
-        : score++;
+      if (
+        this.state.lastClicked.localeCompare(step) === Numbers.ZERO &&
+        this.state.score > Numbers.ZERO
+      ) {
+        score--;
+      } else {
+        score++;
+      }
     } else {
       score = Numbers.ZERO;
     }
