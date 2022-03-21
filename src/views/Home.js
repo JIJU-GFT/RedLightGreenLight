@@ -7,6 +7,8 @@ import GameInput from '@components/GameInput.js';
 import GameButton from '@components/GameButton.js';
 import GameText from '@components/GameText.js';
 
+import { Numbers } from '@utils/constants.js';
+
 // Home view
 function Home() {
   const [username, setUsername] = useState('');
@@ -20,7 +22,7 @@ function Home() {
 
   // Handles navigation on JOIN button, storing the username in localStorage
   function handleJoinClick() {
-    if (username.length >= 3) {
+    if (username.length >= Numbers.USERNAME_LENGTH) {
       window.localStorage.setItem('username', username.trim());
       navigate('/Game');
       setValidUsername(true);

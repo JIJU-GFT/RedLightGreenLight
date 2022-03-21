@@ -1,3 +1,5 @@
+import { Numbers } from '@utils/constants.js';
+
 class GameService {
   constructor(score, isGreen) {
     // Get score and previous light state, set max and min time
@@ -15,15 +17,15 @@ class GameService {
 
   // Update timer according to score and adding ±1500 ms variation
   updateTimer() {
-    var randomVariation = Math.round(Math.random() * 1500);
-    var isNegative = Math.random() < 0.5;
+    var randomVariation = Math.round(Math.random() * Numbers.GAME_TIMEOUT_VARIATION);
+    var isNegative = Math.random() < Numbers.RANDOM_NEGATIVE;
 
     if (isNegative) {
       randomVariation = -randomVariation;
     }
 
     this.timeoutGreenLight =
-      Math.max(this.max - this.score * 100, this.min) + randomVariation;
+      Math.max(this.max - this.score * Numbers.SCORE_MILLISECONDS, this.min) + randomVariation;
 
     // console.log("MS Variation", randomVariation);
     // console.log("Negative", isNegative);

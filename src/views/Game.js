@@ -8,6 +8,8 @@ import GameButton from '@components/GameButton.js';
 import GameService from '@services/gameService.js';
 import { withRouter } from '../services/withRouter';
 
+import { Numbers } from '@utils/constants.js';
+
 var service;
 
 // Game view
@@ -17,8 +19,8 @@ class Game extends React.Component {
     // We initialize the state
     this.state = {
       username: localStorage.getItem('username'),
-      score: 0,
-      highScore: 0,
+      score: Numbers.ZERO,
+      highScore: Numbers.ZERO,
       lastClicked: 'none',
       isGreen: true,
     };
@@ -35,8 +37,8 @@ class Game extends React.Component {
       localStorage.getItem(this.state.username) &&
       JSON.parse(localStorage.getItem(this.state.username));
 
-    var localScore = localUserData ? localUserData.score : 0;
-    var localHighestScore = localUserData ? localUserData.highScore : 0;
+    var localScore = localUserData ? localUserData.score : Numbers.ZERO;
+    var localHighestScore = localUserData ? localUserData.highScore : Numbers.ZERO;
     var localTrafficLightState = localUserData ? localUserData.isGreen : true;
 
     this.setState({
@@ -52,7 +54,7 @@ class Game extends React.Component {
   //  We use the lifecycle hook to store the data when the game is updated
   componentDidUpdate(prevProps, prevState) {
     // We compare previous and current state to prevent unexpected triggers due to React lifecycle
-    if (prevState.isGreen != this.state.isGreen) {
+    if (prevState.isGreen !== this.state.isGreen) {
       this.state.isGreen ? service.startGreenTimer() : service.startRedTimer();
     }
 
@@ -76,16 +78,16 @@ class Game extends React.Component {
 
   // Logic to handle the user's clicks
   handleClick(buttonPressed) {
-    let step = buttonPressed == 0 ? 'Left' : 'Right';
+    let step = buttonPressed === Numbers.STEP_LEFT ? 'Left' : 'Right';
     let score = this.state.score;
     let highest = this.state.highScore;
 
     if (this.state.isGreen) {
-      this.state.lastClicked.localeCompare(step) === 0 && this.state.score > 0
+      this.state.lastClicked.localeCompare(step) === Numbers.ZERO && this.state.score > Numbers.ZERO
         ? score--
         : score++;
     } else {
-      score = 0;
+      score = Numbers.ZERO;
     }
 
     if (score > highest) {
@@ -117,7 +119,7 @@ class Game extends React.Component {
   // Listen to the trafficLight status in localStorage
   storageChanged(e) {
     var eventKey = e.key;
-    if (eventKey.localeCompare('greenLight') == 0) {
+    if (eventKey.localeCompare('greenLight') === Numbers.ZERO) {
       this.setState({ isGreen: e.value });
     }
   }
@@ -152,12 +154,12 @@ class Game extends React.Component {
           <GameButton
             title="Left"
             buttonType="Game-button"
-            onClick={() => this.handleClick(0)}
+            onClick={() => this.handleClick(Numbers.STEP_LEFT)}
           />
           <GameButton
             title="Right"
             buttonType="Game-button"
-            onClick={() => this.handleClick(1)}
+            onClick={() => this.handleClick(Numbers.STEP_RIGHT)}
           />
         </div>
       </div>
