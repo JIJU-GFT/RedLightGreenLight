@@ -16,7 +16,7 @@ class DataPersistanceService {
 
   // Load existing user data
   static loadUserData(username) {
-    return window.localStorage.getItem(username);
+    return JSON.parse(window.localStorage.getItem(username));
   }
 
   // Save the status of the green light

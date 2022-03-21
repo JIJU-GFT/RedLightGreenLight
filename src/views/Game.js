@@ -34,9 +34,9 @@ class Game extends React.Component {
 
   // We use the lifecycle hook to load the saved scores and game state
   componentDidMount() {
-    let localUserData =
-      DataPersistanceService.loadUserData(this.state.username) &&
-      JSON.parse(DataPersistanceService.loadUserData(this.state.username));
+    let localUserData = DataPersistanceService.loadUserData(
+      this.state.username
+    );
 
     let localScore = localUserData ? localUserData.score : Numbers.ZERO;
     let localHighestScore = localUserData
