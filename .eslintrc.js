@@ -20,6 +20,7 @@ module.exports = {
     semi: ['error', 'always'],
     eqeqeq: 2,
     'no-magic-numbers': 2,
+    'no-var': 2,
   },
   settings: {
     react: {

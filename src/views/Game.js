@@ -10,7 +10,7 @@ import { withRouter } from '../services/withRouter';
 
 import { Numbers } from '@utils/constants.js';
 
-var service;
+let service;
 
 // Game view
 class Game extends React.Component {
@@ -33,13 +33,15 @@ class Game extends React.Component {
 
   // We use the lifecycle hook to load the saved scores and game state
   componentDidMount() {
-    var localUserData =
+    let localUserData =
       localStorage.getItem(this.state.username) &&
       JSON.parse(localStorage.getItem(this.state.username));
 
-    var localScore = localUserData ? localUserData.score : Numbers.ZERO;
-    var localHighestScore = localUserData ? localUserData.highScore : Numbers.ZERO;
-    var localTrafficLightState = localUserData ? localUserData.isGreen : true;
+    let localScore = localUserData ? localUserData.score : Numbers.ZERO;
+    let localHighestScore = localUserData
+      ? localUserData.highScore
+      : Numbers.ZERO;
+    let localTrafficLightState = localUserData ? localUserData.isGreen : true;
 
     this.setState({
       score: localScore,
@@ -57,17 +59,6 @@ class Game extends React.Component {
     if (prevState.isGreen !== this.state.isGreen) {
       this.state.isGreen ? service.startGreenTimer() : service.startRedTimer();
     }
-
-    /**
-     * ASK IF ITS REQUIRED TO STOP THE GAME AFTER LOSING ALL THE POINTS.
-     * IF THE GAME SHOULD STOP, UNCOMMENT THE NEXT CONDITIONAL
-     *
-     * CURRENTLY THE GAME CONTINUES AFTER LOSING ALL THE POINTS.
-     */
-    // if (!prevState.isGreen && !this.state.isGreen) {
-    //   service.stopAllTimers();
-    // }
-
     this.saveGame();
   }
 
@@ -83,7 +74,8 @@ class Game extends React.Component {
     let highest = this.state.highScore;
 
     if (this.state.isGreen) {
-      this.state.lastClicked.localeCompare(step) === Numbers.ZERO && this.state.score > Numbers.ZERO
+      this.state.lastClicked.localeCompare(step) === Numbers.ZERO &&
+      this.state.score > Numbers.ZERO
         ? score--
         : score++;
     } else {
@@ -118,7 +110,7 @@ class Game extends React.Component {
 
   // Listen to the trafficLight status in localStorage
   storageChanged(e) {
-    var eventKey = e.key;
+    let eventKey = e.key;
     if (eventKey.localeCompare('greenLight') === Numbers.ZERO) {
       this.setState({ isGreen: e.value });
     }

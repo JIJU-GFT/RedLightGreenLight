@@ -10,7 +10,7 @@ function Scoreboard() {
     JSON.parse(localStorage.getItem('highscore_scoreboard')) || [];
   const scoreItems = [];
 
-  for (var score = 0; score < allHighScores.length; score++) {
+  for (let score = 0; score < allHighScores.length; score++) {
     scoreItems.push(allHighScores[score]);
   }
 

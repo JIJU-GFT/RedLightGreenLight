@@ -17,8 +17,8 @@ class GameService {
 
   // Update timer according to score and adding ±1500 ms variation
   updateTimer() {
-    var randomVariation = Math.round(Math.random() * Numbers.GAME_TIMEOUT_VARIATION);
-    var isNegative = Math.random() < Numbers.RANDOM_NEGATIVE;
+    let randomVariation = Math.round(Math.random() * Numbers.GAME_TIMEOUT_VARIATION);
+    let isNegative = Math.random() < Numbers.RANDOM_NEGATIVE;
 
     if (isNegative) {
       randomVariation = -randomVariation;
