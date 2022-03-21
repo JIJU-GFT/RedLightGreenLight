@@ -111,7 +111,6 @@ class Game extends React.Component {
 
   // Listen to the trafficLight status in localStorage
   storageChanged(e) {
-    console.log('Still works', e.key);
     let eventKey = e.key;
     if (eventKey.localeCompare('greenLight') === Numbers.ZERO) {
       this.setState({ isGreen: e.value });

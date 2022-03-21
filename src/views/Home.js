@@ -42,7 +42,7 @@ function Home() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <center>
-        <h2>Create a new player</h2>
+        <h1>Create a new player</h1>
       </center>
       <div className="Home-body">
         <GameInput sendDataToParent={updateUsername} />
@@ -62,7 +62,7 @@ function Home() {
             textStyles="Error-text"
           />
         )}
-        <h5>v 1.2.2</h5>
+        <footer>v 1.5</footer>
       </div>
     </div>
   );
