@@ -17,6 +17,12 @@ body {
   background-color: $secondary-color;
 }
 
+.Scoreboard {
+  margin: 0;
+  min-height: 100vh;
+  background-color: $secondary-color;
+}
+
 .App-logo {
   height: 30vmin;
   pointer-events: none;
