@@ -53,7 +53,7 @@ function Home() {
         />
         <GameButton
           buttonType="Home-button"
-          title={STRINGS.LEADERBOARD}
+          title={STRINGS.SCORE_LEADERBOARD}
           onClick={handleScoreboardClick}
         />
         {!validUsername && (

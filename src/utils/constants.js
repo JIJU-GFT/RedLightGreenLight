@@ -17,7 +17,7 @@ export const STRINGS = {
   HIGH_SCORES: 'Highest Scores',
   ITEM_SET: 'itemSet',
   JOIN: 'JOIN',
-  LEADERBOARD: 'LEADERBOARD',
+  SCORE_LEADERBOARD: 'LEADERBOARD',
   NONE: 'none',
   STEP_LEFT_TEXT: 'Left',
   STEP_RIGHT_TEXT: 'Right',
