@@ -19,6 +19,8 @@ export const STRINGS = {
   JOIN: 'JOIN',
   SCORE_LEADERBOARD: 'LEADERBOARD',
   NONE: 'none',
+  PLAYER: 'Player',
+  SCORE: 'Score',
   STEP_LEFT_TEXT: 'Left',
   STEP_RIGHT_TEXT: 'Right',
   USERNAME: 'Username',
