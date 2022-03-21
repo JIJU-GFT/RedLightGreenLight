@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/RedLightGreenLight/static/css/main.ac0c9e47.css",
-    "main.js": "/RedLightGreenLight/static/js/main.64bfa144.js",
+    "main.css": "/RedLightGreenLight/static/css/main.2941a6fb.css",
+    "main.js": "/RedLightGreenLight/static/js/main.3a085be2.js",
     "static/js/377.e8628f72.chunk.js": "/RedLightGreenLight/static/js/377.e8628f72.chunk.js",
     "service-worker.js": "/RedLightGreenLight/service-worker.js",
     "static/media/redlight.png": "/RedLightGreenLight/static/media/redlight.145beaa771ebad23fdd3.png",
     "static/media/greenlight.png": "/RedLightGreenLight/static/media/greenlight.5998df87904600d349b1.png",
     "static/media/squid.png": "/RedLightGreenLight/static/media/squid.b11f57a4f5eb93147b4f.png",
     "index.html": "/RedLightGreenLight/index.html",
-    "main.ac0c9e47.css.map": "/RedLightGreenLight/static/css/main.ac0c9e47.css.map",
-    "main.64bfa144.js.map": "/RedLightGreenLight/static/js/main.64bfa144.js.map",
+    "main.2941a6fb.css.map": "/RedLightGreenLight/static/css/main.2941a6fb.css.map",
+    "main.3a085be2.js.map": "/RedLightGreenLight/static/js/main.3a085be2.js.map",
     "377.e8628f72.chunk.js.map": "/RedLightGreenLight/static/js/377.e8628f72.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac0c9e47.css",
-    "static/js/main.64bfa144.js"
+    "static/css/main.2941a6fb.css",
+    "static/js/main.3a085be2.js"
   ]
 }
