@@ -5,22 +5,35 @@ $tertiary-color: #fff;
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.Home {
   min-height: 100vh;
   background-color: $secondary-color;
 }
 
-.Scoreboard {
-  margin: 0;
-  min-height: 100vh;
-  background-color: $secondary-color;
+.Score-body{
+  max-width: 70vw;
+  margin: auto;
+  .Score-entry-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+    .title {
+      font-weight: 900;
+    }
+  }
+  .Score-entry {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .user {
+      font-weight: 700;
+    }
+  }
 }
 
 .App-logo {
