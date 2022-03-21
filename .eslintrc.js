@@ -21,6 +21,7 @@ module.exports = {
     eqeqeq: 2,
     'no-magic-numbers': 2,
     'no-var': 2,
+    'no-unneeded-ternary': 2,
   },
   settings: {
     react: {
