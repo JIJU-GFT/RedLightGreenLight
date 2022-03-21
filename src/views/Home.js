@@ -19,7 +19,7 @@ function Home() {
   }
 
   // Handles navigation on JOIN button, storing the username in localStorage
-  function handleClick() {
+  function handleJoinClick() {
     if (username.length >= 3) {
       window.localStorage.setItem("username", username.trim());
       navigate("/Game");
@@ -27,6 +27,10 @@ function Home() {
     } else {
       setValidUsername(false);
     }
+  }
+
+  function handleScoreboardClick() {
+    navigate("/Scoreboard");
   }
 
   return (
@@ -42,8 +46,9 @@ function Home() {
         <GameButton
           buttonType="Home-button"
           title="JOIN"
-          onClick={handleClick}
+          onClick={handleJoinClick}
         />
+        <GameButton buttonType="Home-button" title="Scoreboard" onClick={handleScoreboardClick} />
         {!validUsername && (
           <GameText
             text="Username must not be blank and should be at least 3 characters long."
