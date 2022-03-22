@@ -17,7 +17,7 @@ const wrapper = shallow(<Game />)
   .dive()
   .instance();
 
-test('game screen renders left, right and eit buttons', () => {
+test('game screen renders left, right and exit buttons', () => {
   const wrapper = render(<Game />);
   expect(wrapper.getByText('Left')).toBeInTheDocument();
   expect(wrapper.getByText('Right')).toBeInTheDocument();

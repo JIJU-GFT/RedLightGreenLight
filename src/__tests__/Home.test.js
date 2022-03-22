@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Home from '../views/Home';
 
@@ -38,5 +39,13 @@ test('home screen should handle Join click on unsuccessful username', () => {
 test('home screen should handle Scoreboard click ', () => {
   wrapper.handleScoreboardClick();
   expect(mockedUsedNavigate).toHaveBeenCalled();
+});
+
+test('home screen should render elements ', () => {
+  const container = render(<Home />);
+
+  expect(container.getByPlaceholderText('Username')).toBeInTheDocument();
+  expect(container.getByText('JOIN')).toBeInTheDocument();
+  expect(container.getByText('LEADERBOARD')).toBeInTheDocument();
 });
 

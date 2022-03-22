@@ -9,6 +9,13 @@ let userData = {
   isGreen: true,
 };
 
+let mockLeaderBoard = [
+  {
+    username: 'user',
+    highScore: 10,
+  },
+];
+
 test('saves all data in localstorage', () => {
   jest.spyOn(window.localStorage.__proto__, 'setItem');
   DataPersistanceService.saveUserName(userData.username);
@@ -21,8 +28,12 @@ test('saves all data in localstorage', () => {
 
 test('loads all data correctly from localstorage', () => {
   jest.spyOn(window.localStorage.__proto__, 'getItem');
-  DataPersistanceService.loadUserName();
-  DataPersistanceService.loadLeaderboard();
-  DataPersistanceService.loadUserData(userData.username);
+  let scopedUserName = DataPersistanceService.loadUserName();
+  let scopedLeaderboard = DataPersistanceService.loadLeaderboard();
+  let scopedUserData = DataPersistanceService.loadUserData(userData.username);
+
   expect(localStorage.getItem).toHaveBeenCalledTimes(LOAD_ACCESS);
+  expect(scopedUserName).toBe('user');
+  expect(scopedLeaderboard).toEqual(mockLeaderBoard);
+  expect(scopedUserData).toEqual(userData);
 });
