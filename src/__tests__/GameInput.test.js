@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import GameInput from '../GameInput';
+import GameInput from '../components/GameInput';
 
 test('render game button', () => {
   const container = render(<GameInput sendDataToParent={() => {}} />);

@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/services/dataPersistanceService.js</title>
+    <title>Code coverage report for services/gameService.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/services</a> dataPersistanceService.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">services</a> gameService.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">74.19% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/20</span>
+                <span class='fraction'>23/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.54% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/11</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.77% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/9</span>
+                <span class='fraction'>10/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.94% </span>
+                <span class="strong">74.19% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/19</span>
+                <span class='fraction'>23/31</span>
             </div>
         
             
@@ -142,35 +142,85 @@
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
 <a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -180,126 +230,133 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { STRINGS, NUMBERS } from '../utils/constants.js';
-class DataPersistanceService {
-  // Store username
-  static saveUserName(username) {
-    window.localStorage.setItem(
-      STRINGS.USERNAME,
-      STRINGS.USER_PREFIX + username
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { NUMBERS, STRINGS } from '../utils/constants.js';
+import DataPersistanceService from '../services/dataPersistanceService';
+&nbsp;
+class GameService {
+  constructor(score, isGreen) {
+    // Get score and previous light state, set max and min time
+    this.score = score;
+    this.max = 10000;
+    this.min = 2000;
+    this.isGreenOnLoad = isGreen;
+&nbsp;
+    // Declare timers for each traffic light
+    this.timeoutGreenLight;
+    this.timeoutRedLight = 3000;
+&nbsp;
+    this.isGreenOnLoad ? this.startGreenTimer() : this.startRedTimer();
+  }
+&nbsp;
+  // Update timer according to score and adding ±1500 ms variation
+  updateTimer() {
+    let randomVariation = Math.round(
+      Math.random() * NUMBERS.GAME_TIMEOUT_VARIATION
     );
-  }
+    let isNegative = Math.random() &lt; NUMBERS.RANDOM_NEGATIVE;
 &nbsp;
-  // Load username
-  static loadUserName() {
-    return window.localStorage
-      .getItem(STRINGS.USERNAME)
-      .substring(NUMBERS.USER_SUBSTRING_START);
-  }
-&nbsp;
-  // Save user data
-  static saveUserData(key, data) {
-    window.localStorage.setItem(
-      STRINGS.USER_PREFIX + key,
-      JSON.stringify(data)
-    );
-  }
-&nbsp;
-  // Load existing user data
-  static loadUserData(username) {
-    let userData = window.localStorage.getItem(STRINGS.USER_PREFIX + username);
-    return userData &amp;&amp; JSON.parse(userData);
-  }
-&nbsp;
-  // Save the status of the green light
-  static setGreenLight(isGreen) {
-    window.localStorage.setItem(STRINGS.GREEN_LIGHT, isGreen);
-  }
-&nbsp;
-  // Save user highscore, replace if user already exists in leaderboard
-  static saveHighScore(key, highScore) {
-    // Load preexisting leaderboard status
-    let leaderboard = this.loadLeaderboard();
-&nbsp;
-    // Create current highest object
-    let currentHighest = {
-      username: key,
-      highScore: highScore,
-    };
-&nbsp;
-    // Update if user exists and return true if it does
-    let exists = leaderboard.some(<span class="fstat-no" title="function not covered" >(e</span>ntry) =&gt; {
-<span class="cstat-no" title="statement not covered" >      if (entry.username === currentHighest.username) {</span>
-<span class="cstat-no" title="statement not covered" >        if (entry.highScore &lt; currentHighest.highScore) {</span>
-<span class="cstat-no" title="statement not covered" >          entry.highScore = currentHighest.highScore;</span>
-        }
-<span class="cstat-no" title="statement not covered" >        return true;</span>
-      }
-    });
-&nbsp;
-    // If user does not exist, creates a new entry
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!exists) {
-      leaderboard.push(currentHighest);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (isNegative) {
+<span class="cstat-no" title="statement not covered" >      randomVariation = -randomVariation;</span>
     }
 &nbsp;
-    leaderboard.sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >b.highScore - a.highScore)</span>;
+    this.timeoutGreenLight =
+      Math.max(this.max - this.score * NUMBERS.SCORE_MILLISECONDS, this.min) +
+      randomVariation;
+  }
 &nbsp;
-    // Stores leaderboard
-    window.localStorage.setItem(
-      STRINGS.SCORE_LEADERBOARD,
-      JSON.stringify(leaderboard)
+  // Set the score
+  setScore(score) {
+    this.score = score;
+  }
+&nbsp;
+  // Start green timer
+  startGreenTimer() {
+    this.greenLightTimer = this.updateTimer();
+    this.greenLightTimer = window.setTimeout(
+<span class="fstat-no" title="function not covered" >      ()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.changeGreenLight(),</span>
+      this.timeoutGreenLight
     );
   }
 &nbsp;
-  // Load leaderboards
-  static loadLeaderboard() {
-    let scoreboard = window.localStorage.getItem(STRINGS.SCORE_LEADERBOARD);
-    return (scoreboard &amp;&amp; JSON.parse(scoreboard)) || [];
+  // Start red timer
+  startRedTimer() {
+    this.redLightTimer = window.setTimeout(
+<span class="fstat-no" title="function not covered" >      ()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.changeRedLight(),</span>
+      this.timeoutRedLight
+    );
+  }
+&nbsp;
+  // Stop all timers
+  stopAllTimers() {
+    this.stopGreenTimer();
+    this.stopRedTimer();
+  }
+&nbsp;
+  // Stop green timer
+  stopGreenTimer() {
+    window.clearTimeout(this.greenLightTimer);
+  }
+&nbsp;
+  // Stop red timer
+  stopRedTimer() {
+    window.clearTimeout(this.redLightTimer);
+  }
+&nbsp;
+  // Change green light status
+  changeGreenLight() {
+    DataPersistanceService.setGreenLight(false);
+  }
+&nbsp;
+  // Change red light status
+  changeRedLight() {
+    DataPersistanceService.setGreenLight(true);
   }
 }
 &nbsp;
-export default DataPersistanceService;
+// Override storage setItem to allow for the main app to listen to the event
+const setStorageItem = localStorage.setItem;
+&nbsp;
+localStorage.setItem = <span class="fstat-no" title="function not covered" >fu</span>nction (key, value) {
+  const event = <span class="cstat-no" title="statement not covered" >new Event(STRINGS.ITEM_SET);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  event.key = key;</span>
+<span class="cstat-no" title="statement not covered" >  event.value = value;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  window.dispatchEvent(event);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  setStorageItem.apply(this, arguments);</span>
+};
+&nbsp;
+export default GameService;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -307,16 +364,16 @@ export default DataPersistanceService;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Mar 22 2022 02:02:14 GMT+0100 (hora estándar de Europa central)
+                at Tue Mar 22 2022 03:19:12 GMT+0100 (hora estándar de Europa central)
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     

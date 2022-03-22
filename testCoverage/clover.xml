@@ -1,99 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647910249698" clover="3.2.0">
-  <project timestamp="1647910249698" name="All files">
-    <metrics statements="199" coveredstatements="53" conditionals="101" coveredconditionals="11" methods="69" coveredmethods="21" elements="369" coveredelements="85" complexity="0" loc="199" ncloc="199" packages="5" files="16" classes="16"/>
-    <package name="src">
-      <metrics statements="67" coveredstatements="0" conditionals="48" coveredconditionals="0" methods="22" coveredmethods="0"/>
-      <file name="App.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/App.js">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="14" count="0" type="stmt"/>
-      </file>
-      <file name="index.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/index.js">
-        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-      </file>
-      <file name="reportWebVitals.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/reportWebVitals.js">
-        <metrics statements="8" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-      </file>
-      <file name="service-worker.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/service-worker.js">
-        <metrics statements="16" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="69" count="0" type="stmt"/>
-      </file>
-      <file name="serviceWorkerRegistration.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/serviceWorkerRegistration.js">
-        <metrics statements="39" coveredstatements="0" conditionals="32" coveredconditionals="0" methods="16" coveredmethods="0"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="70" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="80" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="81" count="0" type="stmt"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="90" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="111" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="116" count="0" type="stmt"/>
-        <line num="117" count="0" type="stmt"/>
-        <line num="118" count="0" type="stmt"/>
-        <line num="123" count="0" type="stmt"/>
-        <line num="127" count="0" type="stmt"/>
-        <line num="134" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="135" count="0" type="stmt"/>
-        <line num="137" count="0" type="stmt"/>
-        <line num="140" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.components">
+<coverage generated="1647915552955" clover="3.2.0">
+  <project timestamp="1647915552955" name="All files">
+    <metrics statements="107" coveredstatements="93" conditionals="49" coveredconditionals="43" methods="37" coveredmethods="30" elements="193" coveredelements="166" complexity="0" loc="107" ncloc="107" packages="3" files="7" classes="7"/>
+    <package name="components">
       <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="GameButton.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/components/GameButton.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="8" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
       </file>
       <file name="GameInput.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/components/GameInput.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -114,154 +29,114 @@
         <line num="13" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.services">
-      <metrics statements="55" coveredstatements="39" conditionals="15" coveredconditionals="9" methods="24" coveredmethods="17"/>
+    <package name="services">
+      <metrics statements="51" coveredstatements="43" conditionals="17" coveredconditionals="15" methods="22" coveredmethods="18"/>
       <file name="dataPersistanceService.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/services/dataPersistanceService.js">
-        <metrics statements="19" coveredstatements="15" conditionals="11" coveredconditionals="6" methods="9" coveredmethods="7"/>
+        <metrics statements="20" coveredstatements="20" conditionals="13" coveredconditionals="12" methods="9" coveredmethods="8"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="34" count="3" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="59" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="63" count="1" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="74" count="2" type="stmt"/>
-        <line num="75" count="2" type="cond" truecount="3" falsecount="0"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="15" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="9" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="30" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="41" count="9" type="stmt"/>
+        <line num="44" count="9" type="stmt"/>
+        <line num="50" count="9" type="stmt"/>
+        <line num="51" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="52" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="55" count="7" type="stmt"/>
+        <line num="60" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="64" count="9" type="stmt"/>
+        <line num="67" count="9" type="stmt"/>
+        <line num="75" count="10" type="stmt"/>
+        <line num="76" count="10" type="cond" truecount="3" falsecount="0"/>
       </file>
       <file name="gameService.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/services/gameService.js">
         <metrics statements="31" coveredstatements="23" conditionals="4" coveredconditionals="3" methods="13" coveredmethods="10"/>
-        <line num="7" count="10" type="stmt"/>
-        <line num="8" count="10" type="stmt"/>
-        <line num="9" count="10" type="stmt"/>
-        <line num="10" count="10" type="stmt"/>
-        <line num="13" count="10" type="stmt"/>
-        <line num="14" count="10" type="stmt"/>
-        <line num="16" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="7" type="stmt"/>
-        <line num="24" count="7" type="stmt"/>
-        <line num="26" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="7" count="12" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="9" count="12" type="stmt"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="13" count="12" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="16" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="10" type="stmt"/>
+        <line num="24" count="10" type="stmt"/>
+        <line num="26" count="10" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="0" type="stmt"/>
-        <line num="30" count="7" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="42" count="7" type="stmt"/>
-        <line num="43" count="7" type="stmt"/>
+        <line num="30" count="10" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="42" count="10" type="stmt"/>
+        <line num="43" count="10" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
-        <line num="51" count="5" type="stmt"/>
+        <line num="51" count="7" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
-        <line num="70" count="2" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="70" count="3" type="stmt"/>
         <line num="75" count="1" type="stmt"/>
         <line num="80" count="1" type="stmt"/>
-        <line num="85" count="1" type="stmt"/>
-        <line num="87" count="1" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
+        <line num="87" count="2" type="stmt"/>
         <line num="88" count="0" type="stmt"/>
         <line num="90" count="0" type="stmt"/>
         <line num="91" count="0" type="stmt"/>
         <line num="93" count="0" type="stmt"/>
         <line num="95" count="0" type="stmt"/>
       </file>
-      <file name="withRouter.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/services/withRouter.js">
-        <metrics statements="5" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-      </file>
     </package>
-    <package name="src.utils">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="constants.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/utils/constants.js">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.views">
-      <metrics statements="63" coveredstatements="0" conditionals="36" coveredconditionals="0" methods="19" coveredmethods="0"/>
+    <package name="views">
+      <metrics statements="44" coveredstatements="38" conditionals="30" coveredconditionals="26" methods="11" coveredmethods="8"/>
       <file name="Game.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/views/Game.js">
-        <metrics statements="44" coveredstatements="0" conditionals="30" coveredconditionals="0" methods="11" coveredmethods="0"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="62" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="79" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="83" count="0" type="stmt"/>
-        <line num="85" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="86" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="95" count="0" type="stmt"/>
-        <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="115" count="0" type="stmt"/>
-        <line num="121" count="0" type="stmt"/>
-        <line num="122" count="0" type="stmt"/>
-        <line num="130" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="44" coveredstatements="38" conditionals="30" coveredconditionals="26" methods="11" coveredmethods="8"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="41" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="60" count="8" type="stmt"/>
+        <line num="62" count="8" type="cond" truecount="4" falsecount="0"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="7" type="cond" truecount="4" falsecount="0"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="67" count="8" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="79" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="82" count="3" type="stmt"/>
+        <line num="83" count="3" type="stmt"/>
+        <line num="85" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="86" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="98" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="103" count="3" type="stmt"/>
+        <line num="110" count="3" type="stmt"/>
+        <line num="115" count="8" type="stmt"/>
+        <line num="121" count="8" type="stmt"/>
+        <line num="122" count="8" type="stmt"/>
+        <line num="130" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="131" count="0" type="stmt"/>
         <line num="132" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="133" count="0" type="stmt"/>
-        <line num="139" count="0" type="stmt"/>
+        <line num="139" count="10" type="stmt"/>
         <line num="146" count="0" type="stmt"/>
         <line num="168" count="0" type="stmt"/>
         <line num="173" count="0" type="stmt"/>
-        <line num="181" count="0" type="stmt"/>
-      </file>
-      <file name="Home.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/views/Home.js">
-        <metrics statements="11" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-      </file>
-      <file name="Scoreboard.js" path="/Users/afroyogo/Projects/React/bbva-red-light-green-light/src/views/Scoreboard.js">
-        <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
+        <line num="181" count="1" type="stmt"/>
       </file>
     </package>
   </project>

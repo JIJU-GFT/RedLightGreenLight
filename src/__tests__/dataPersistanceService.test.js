@@ -1,4 +1,4 @@
-import DataPersistanceService from '../dataPersistanceService';
+import DataPersistanceService from '../services/dataPersistanceService';
 
 const SAVE_ACCESS = 4;
 const LOAD_ACCESS = 3;

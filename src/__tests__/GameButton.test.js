@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import GameButton from '../GameButton';
+import GameButton from '../components/GameButton';
 
 test('renders game button', () => {
   const container = render(<GameButton title="button1" buttonType="Game-button" onClick={() => {}} />);

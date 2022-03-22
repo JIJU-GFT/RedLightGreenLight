@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import redLight from '@images/redlight.png';
-import greenLight from '@images/greenlight.png';
+import redLight from '../assets/images/redlight.png';
+import greenLight from '../assets/images/greenlight.png';
 
-import GameButton from '@components/GameButton.js';
-import GameService from '@services/gameService.js';
+import GameButton from '../components/GameButton.js';
+import GameService from '../services/gameService.js';
 import { withRouter } from '../services/withRouter';
 
-import { NUMBERS, STRINGS } from '@utils/constants.js';
-import DataPersistanceService from '@services/dataPersistanceService.js';
+import { NUMBERS, STRINGS } from '../utils/constants.js';
+import DataPersistanceService from '../services/dataPersistanceService.js';
 
 let service;
 

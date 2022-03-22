@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ScoreboardEntry from '../ScoreboardEntry';
+import ScoreboardEntry from '../components/ScoreboardEntry';
 
 const dummyScore = {
   username: 'John Doe',

@@ -10,9 +10,10 @@ class DataPersistanceService {
 
   // Load username
   static loadUserName() {
-    return window.localStorage
-      .getItem(STRINGS.USERNAME)
-      .substring(NUMBERS.USER_SUBSTRING_START);
+    let username = window.localStorage
+    .getItem(STRINGS.USERNAME);
+    return username &&
+      username.substring(NUMBERS.USER_SUBSTRING_START);
   }
 
   // Save user data

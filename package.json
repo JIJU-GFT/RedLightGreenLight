@@ -32,7 +32,7 @@
       "./setupTests.js"
     ],
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
+      "/__tests__/*.{js,jsx}"
     ],
     "coverageThreshold": {
       "global": {

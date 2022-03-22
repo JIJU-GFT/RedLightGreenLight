@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import GameText from '../GameText';
+import GameText from '../components/GameText';
 
 let dummyText = 'test';
 let defaultText = 'defaultText';
@@ -18,6 +18,8 @@ test('render the default styles if non are provided', () => {
 });
 
 test('render proper styles when provided', () => {
-  const wrapper = shallow(<GameText text={dummyText} textStyles={customStyles} />);
+  const wrapper = shallow(
+    <GameText text={dummyText} textStyles={customStyles} />
+  );
   expect(wrapper.find('p').hasClass(customStyles)).toBe(true);
 });

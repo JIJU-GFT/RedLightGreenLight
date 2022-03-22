@@ -1,4 +1,4 @@
-import GameService from '../gameService';
+import GameService from '../services/gameService';
 
 beforeAll(() => {
   jest.spyOn(window.localStorage.__proto__, 'setItem');
