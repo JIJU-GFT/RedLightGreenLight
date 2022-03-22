@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Scoreboard from '../views/Scoreboard';
 import { fireEvent, render } from '@testing-library/react';

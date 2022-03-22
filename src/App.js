@@ -1,7 +1,7 @@
 import React from 'react';
-import Home from '@views/Home.js';
-import Game from '@views/Game.js';
-import Scoreboard from '@views/Scoreboard.js';
+import Home from './views/Home.js';
+import Game from './views/Game.js';
+import Scoreboard from './views/Scoreboard.js';
 
 import {
   BrowserRouter as Router,

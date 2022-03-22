@@ -5,6 +5,8 @@ import Game from '../views/Game';
 import { render } from '@testing-library/react';
 
 const mockedUsedNavigate = jest.fn();
+const ZERO = 0;
+const ONE = 1;
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -30,13 +32,13 @@ test('game screen triggers timer on state change', () => {
 });
 
 test('game screen handles clicks', () => {
-  wrapper.handleClick(1);
-  expect(wrapper.state.score).toBe(1);
-  wrapper.handleClick(1);
-  expect(wrapper.state.score).toBe(0);
+  wrapper.handleClick(ONE);
+  expect(wrapper.state.score).toBe(ONE);
+  wrapper.handleClick(ONE);
+  expect(wrapper.state.score).toBe(ZERO);
   wrapper.setState({ isGreen: false });
-  wrapper.handleClick(1);
-  expect(wrapper.state.score).toBe(0);
+  wrapper.handleClick(ONE);
+  expect(wrapper.state.score).toBe(ZERO);
 });
 
 test('game screen handles localStorage item inputs', () => {

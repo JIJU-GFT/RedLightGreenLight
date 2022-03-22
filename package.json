@@ -32,7 +32,7 @@
       "./setupTests.js"
     ],
     "collectCoverageFrom": [
-      "src/__tests__/*.{js,jsx}"
+      "'src/__tests__/*.{js,jsx}'"
     ],
     "coverageThreshold": {
       "global": {
@@ -47,7 +47,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test src/__tests__/*.{js,jsx} --coverage --verbose",
+    "test": "react-app-rewired test --collectCoverageGrom=src/__tests__/*.{js,jsx} --watchAll --coverage --verbose",
     "eject": "react-app-rewired eject",
     "lint": "eslint ./src/*.js ./src/**/*.js ./src/**/**/*.js",
     "deploy": "react-app-rewired build && gh-pages -d build"
