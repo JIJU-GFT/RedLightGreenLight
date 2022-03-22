@@ -10,10 +10,9 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => mockedUsedNavigate,
 }));
 
-test('basename is correct', () => {
-  shallow(<App />);
-  let url = window.location.url;
-  window.open(url);
-  console.warn(url);
-  expect(window.location.pathname).toBe('/RedLightGreenLight/Home');
+test('app is loaded with correct basename', () => {
+  const wrapper = shallow(<App />);
+  let url = wrapper.getElement().props.basename;
+
+  expect(url).toBe('/RedLightGreenLight');
 });
