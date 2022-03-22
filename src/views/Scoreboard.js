@@ -1,46 +1,57 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import ScoreboardEntry from '@components/ScoreboardEntry.js';
-import GameButton from '@components/GameButton.js';
+import ScoreboardEntry from '../components/ScoreboardEntry.js';
+import GameButton from '../components/GameButton.js';
 
 import DataPersistanceService from '../services/dataPersistanceService';
-import { STRINGS } from '@utils/constants.js';
+import { withRouter } from '../services/withRouter';
+import { STRINGS } from '../utils/constants.js';
 
-function Scoreboard() {
-  const navigate = useNavigate();
-  const allHighScores = DataPersistanceService.loadLeaderboard();
+class Scoreboard extends React.Component {
+  constructor(props) {
+    super(props);
+    // We initialize the state
+    this.state = {
+      allHighScores: DataPersistanceService.loadLeaderboard(),
+    };
 
-  console.log('all scores', allHighScores);
-
-  function goBack() {
-    navigate('/Home');
+    // We bind the class functions so they can be accessible
+    this.goBack = this.goBack.bind(this);
   }
 
-  return (
-    <>
-      <div className="Game-header">
-        <GameButton
-          title={STRINGS.EXIT}
-          buttonType="Game-exit-button"
-          onClick={() => goBack()}
-        />
-      </div>
-      <header className="App-header">
-        <h1>{STRINGS.HIGH_SCORES}</h1>
-      </header>
-      <div className="Score-body">
-        <div className='Score-entry-title'>
-          <span className='title'>{STRINGS.PLAYER}</span>
-          <span className='title'>{STRINGS.SCORE}</span>
+  goBack() {
+    this.props.navigate('/Home');
+  }
+  render() {
+    return (
+      <>
+        <div className="Game-header">
+          <GameButton
+            id="exit"
+            title={STRINGS.EXIT}
+            buttonType="Game-exit-button"
+            onClick={() => this.goBack()}
+          />
         </div>
-        {allHighScores.map((entry, key) => {
-          console.log('Score entry', key, entry);
-          return <ScoreboardEntry key={key} id={key} scoreEntry={entry} />;
-        })}
-      </div>
-    </>
-  );
+        <header className="App-header">
+          <h1>{STRINGS.HIGH_SCORES}</h1>
+        </header>
+        <div className="Score-body">
+          <div className="Score-entry-title">
+            <span className="title">{STRINGS.PLAYER}</span>
+            <span className="title">{STRINGS.SCORE}</span>
+          </div>
+          {this.state.allHighScores.map((entry, key) => {
+            return <ScoreboardEntry key={key} id={key} scoreEntry={entry} />;
+          })}
+        </div>
+      </>
+    );
+  }
 }
 
-export default Scoreboard;
+Scoreboard.propTypes = {
+  navigate: PropTypes.func.isRequired,
+};
+export default withRouter(Scoreboard);

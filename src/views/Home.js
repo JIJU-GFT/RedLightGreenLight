@@ -1,68 +1,88 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import logo from '@images/squid.png';
+import logo from '../assets/images/squid.png';
 
-import GameInput from '@components/GameInput.js';
-import GameButton from '@components/GameButton.js';
-import GameText from '@components/GameText.js';
+import GameInput from '../components/GameInput.js';
+import GameButton from '../components/GameButton.js';
+import GameText from '../components/GameText.js';
 
-import { NUMBERS, STRINGS } from '@utils/constants.js';
-import DataPersistanceService from '@services/dataPersistanceService.js';
+import { NUMBERS, STRINGS } from '../utils/constants.js';
+
+import DataPersistanceService from '../services/dataPersistanceService.js';
+import { withRouter } from '../services/withRouter';
 
 // Home view
-function Home() {
-  const [username, setUsername] = useState();
-  const [validUsername, setValidUsername] = useState(true);
-  const navigate = useNavigate();
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    // We initialize the state
+    this.state = {
+      username: '',
+      validUsername: true,
+    };
+
+    // We bind the class functions so they can be accessible
+    this.updateUsername = this.updateUsername.bind(this);
+    this.handleJoinClick = this.handleJoinClick.bind(this);
+    this.handleScoreboardClick = this.handleScoreboardClick.bind(this);
+  }
 
   // Updates the username value and validates it's length
-  function updateUsername(e) {
-    setUsername(e.target.value.trim());
+  updateUsername(e) {
+    this.setState({ username: e.target.value.trim() });
   }
 
   // Handles navigation on JOIN button, storing the username in localStorage
-  function handleJoinClick() {
-    if (username && username.length >= NUMBERS.USERNAME_LENGTH) {
-      DataPersistanceService.saveUserName(username.trim());
-      navigate('/Game');
-      setValidUsername(true);
+  handleJoinClick() {
+    if (
+      this.state.username &&
+      this.state.username.length >= NUMBERS.USERNAME_LENGTH
+    ) {
+      DataPersistanceService.saveUserName(this.state.username.trim());
+      this.props.navigate('/Game');
+      this.setState({ validUsername: true });
     } else {
-      setValidUsername(false);
+      this.setState({ validUsername: false });
     }
   }
 
-  function handleScoreboardClick() {
-    navigate('/Scoreboard');
+  handleScoreboardClick() {
+    this.props.navigate('/Scoreboard');
   }
 
-  return (
-    <>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-      <center>
-        <h1>Create a new player</h1>
-      </center>
-      <div className="Home-body">
-        <GameInput sendDataToParent={updateUsername} />
-        <GameButton
-          buttonType="Home-button"
-          title={STRINGS.JOIN}
-          onClick={handleJoinClick}
-        />
-        <GameButton
-          buttonType="Home-button"
-          title={STRINGS.SCORE_LEADERBOARD}
-          onClick={handleScoreboardClick}
-        />
-        {!validUsername && (
-          <GameText text={STRINGS.USERNAME_INVALID} textStyles="Error-text" />
-        )}
-        <footer>v 1.5</footer>
-      </div>
-    </>
-  );
+  render() {
+    return (
+      <>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+        <center>
+          <h1>Create a new player</h1>
+        </center>
+        <div className="Home-body">
+          <GameInput id="input" sendDataToParent={this.updateUsername} />
+          <GameButton
+            id="join"
+            buttonType="Home-button"
+            title={STRINGS.JOIN}
+            onClick={this.handleJoinClick}
+          />
+          <GameButton
+            id="scores"
+            buttonType="Home-button"
+            title={STRINGS.SCORE_LEADERBOARD}
+            onClick={this.handleScoreboardClick}
+          />
+          {!this.state.validUsername && (
+            <GameText text={STRINGS.USERNAME_INVALID} textStyles="Error-text" />
+          )}
+        </div>
+      </>
+    );
+  }
 }
-
-export default Home;
+Home.propTypes = {
+  navigate: PropTypes.func.isRequired,
+};
+export default withRouter(Home);

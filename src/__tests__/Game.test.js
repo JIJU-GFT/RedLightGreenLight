@@ -12,8 +12,8 @@ jest.mock('react-router-dom', () => ({
 }));
 
 const wrapper = shallow(<Game />)
-    .dive()
-    .instance();
+  .dive()
+  .instance();
 
 test('game screen renders left, right and eit buttons', () => {
   const wrapper = render(<Game />);
@@ -40,7 +40,12 @@ test('game screen handles clicks', () => {
 });
 
 test('game screen handles localStorage item inputs', () => {
-    let eventGreenLight = {target:{key: 'greenLight', value: true}};
-    wrapper.storageChanged(eventGreenLight);
-    expect(wrapper.state.isGreen).toBe(true);
+  let eventGreenLight = {
+    target: {
+      key: 'greenLight',
+      value: false,
+    },
+  };
+  wrapper.storageChanged(eventGreenLight);
+  expect(wrapper.state.isGreen).toBe(false);
 });
