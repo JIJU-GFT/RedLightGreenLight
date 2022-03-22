@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 const ScoreboardEntry = ({ scoreEntry }) => {
   return (
-      <div className="Score-entry">
-        <span className="user">{scoreEntry.username}</span>
-        <span className="score">{scoreEntry.highScore} pts.</span>
+      <div className="score-entry-row">
+        <span className="user-entry">{scoreEntry.username}</span>
+        <span className="score-entry">{scoreEntry.highScore} pts.</span>
       </div>
   );
 };

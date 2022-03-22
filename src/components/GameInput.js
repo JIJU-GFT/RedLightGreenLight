@@ -6,8 +6,7 @@ import { STRINGS } from '../utils/constants.js';
 const GameInput = ({ sendDataToParent }) => {
   return (
     <input
-      data-testid="Game-Input"
-      className="User-input"
+      className="username-input"
       placeholder={STRINGS.USERNAME}
       onChange={sendDataToParent}
     />

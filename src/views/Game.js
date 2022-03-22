@@ -137,43 +137,39 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div className="Home">
-        <div className="Game-header">
+      <>
+        <div className="exit-button-container">
           <GameButton
             title={STRINGS.EXIT}
-            buttonType="Game-exit-button"
+            buttonType="interaction-button exit-button"
             onClick={() => {
               this.props.navigate('/Home');
             }}
           />
         </div>
-        <center>
-          <h3>Hi, {this.state.username}.</h3>
-          <h3>Highest Score: {this.state.highScore}.</h3>
-        </center>
-        <header className="App-header">
+        <h3>Hi, {this.state.username}.</h3>
+        <h3>Highest Score: {this.state.highScore}.</h3>
+        <header className="traffic-light-container">
           {this.state.isGreen ? (
-            <img src={greenLight} className="App-logo" alt="logo" />
+            <img src={greenLight} className="traffic-light" alt="green light" />
           ) : (
-            <img src={redLight} className="App-logo" alt="logo" />
+            <img src={redLight} className="traffic-light" alt="red light" />
           )}
-        </header>
-        <center>
           <h3>Score: {this.state.score}.</h3>
-        </center>
-        <div className="Game-body">
+        </header>
+        <div className="game-buttons-container">
           <GameButton
             title={STRINGS.STEP_LEFT_TEXT}
-            buttonType="Game-button"
+            buttonType="interaction-button game-button"
             onClick={() => this.handleClick(NUMBERS.STEP_LEFT_ID)}
           />
           <GameButton
             title={STRINGS.STEP_RIGHT_TEXT}
-            buttonType="Game-button"
+            buttonType="interaction-button game-button"
             onClick={() => this.handleClick(NUMBERS.STEP_RIGHT_ID)}
           />
         </div>
-      </div>
+      </>
     );
   }
 }

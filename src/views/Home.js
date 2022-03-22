@@ -54,30 +54,32 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+        <header className="app-header">
+          <img src={logo} className="logo" alt="logo" />
+          <p className="welcome-title">
+            Welcome to <br />
+            Red Light, Green Light
+          </p>
         </header>
-        <center>
-          <h1>Create a new player</h1>
-        </center>
-        <div className="Home-body">
+        <div className="homescreen-body">
+          <p>Create a new player</p>
           <GameInput id="input" sendDataToParent={this.updateUsername} />
           <GameButton
             id="join"
-            buttonType="Home-button"
+            buttonType="interaction-button"
             title={STRINGS.JOIN}
             onClick={this.handleJoinClick}
           />
           <GameButton
             id="scores"
-            buttonType="Home-button"
+            buttonType="interaction-button"
             title={STRINGS.SCORE_LEADERBOARD}
             onClick={this.handleScoreboardClick}
           />
-          {!this.state.validUsername && (
-            <GameText text={STRINGS.USERNAME_INVALID} textStyles="Error-text" />
-          )}
         </div>
+        {!this.state.validUsername && (
+          <GameText text={STRINGS.USERNAME_INVALID} textStyles="error-text" />
+        )}
       </>
     );
   }

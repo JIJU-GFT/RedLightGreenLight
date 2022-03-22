@@ -10,6 +10,6 @@ const dummyScore = {
 
 test('displays parsed info correctly according to props', () => {
   const wrapper = shallow(<ScoreboardEntry scoreEntry={dummyScore} />);
-  expect(wrapper.find('.user').text()).toBe(dummyScore.username);
-  expect(wrapper.find('.score').text()).toBe(dummyScore.highScore + ' pts.');
+  expect(wrapper.find('.user-entry').text()).toBe(dummyScore.username);
+  expect(wrapper.find('.score-entry').text()).toBe(dummyScore.highScore + ' pts.');
 });

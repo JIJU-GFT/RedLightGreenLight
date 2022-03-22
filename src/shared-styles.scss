@@ -1,7 +1,9 @@
 // STYLE VARIABLES
-$primary-color: #0e2143;
+$primary-color: #202630;
 $secondary-color: #d9ecfa;
-$tertiary-color: #fff;
+$tertiary-color: #50607d;
+$error-text: red;
+$score-color: olive;
 
 body {
   margin: 0;
@@ -11,37 +13,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  background-color: $secondary-color;
-}
-
-.Score-body{
-  max-width: 70vw;
-  margin: auto;
-  .Score-entry-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 2vh;
-    .title {
-      font-weight: 900;
-    }
+  color: $secondary-color;
+  background-color: $primary-color;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-align: center;
   }
-  .Score-entry {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    .user {
-      font-weight: 700;
-    }
+  p {
+    text-align: center;
+    font-size: 1.5em;
   }
 }
 
-.App-logo {
-  height: 30vmin;
-  pointer-events: none;
-}
-
-.App-header {
+.app-header {
   min-height: 30vh;
   display: flex;
   flex-direction: column;
@@ -51,91 +38,138 @@ body {
   padding-top: 1vh;
 }
 
-.Game-header {
+.scoreboard-header {
+  min-height: 10vh;
+}
+
+.logo {
+  height: 50vmin;
+  pointer-events: none;
+}
+
+.traffic-light {
+  height: 25vh;
+  background-color: rgba($secondary-color, 0.8);
+  padding: 1vh;
+  border-radius: 1vw;
+}
+
+.homescreen-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 40vh;
+  .welcome-title {
+    font-size: 2em;
+  }
+}
+
+.interaction-button {
+  min-width: 74.2vw;
+  min-height: 5vh;
+  border-radius: 5px;
+  margin: 2vh;
+  text-align: center;
+  border: none;
+  background-color: $tertiary-color;
+  color: $secondary-color;
+  &:active {
+    background-color: rgba($tertiary-color, 0.6);
+  }
+  &:disabled {
+    background-color: rgba($tertiary-color, 0.4);
+  }
+}
+
+.exit-button-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   padding-top: 1vh;
 }
 
-.Home-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  min-height: 15vh;
-}
-
-.Game-body {
+.game-buttons-container {
+  position: absolute;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  min-height: 15vh;
+  min-height: 10vh;
+  min-width: 100vw;
+  bottom: 0;
 }
 
-.Game-button {
-  min-width: 40vw;
+.traffic-light-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.game-button {
+  min-width: 42.5vw;
   min-height: 5vh;
-  border-radius: 5px;
-  background-color: $primary-color;
-  color: $secondary-color;
-  &:active {
-    background-color: rgba($primary-color, 0.6);
+}
+
+.exit-button {
+  min-width: 30vw;
+  min-height: 5vh;
+}
+
+.score-container {
+  color: $primary-color;
+  border-radius: 1vw;
+  background-color: $secondary-color;
+  max-width: 75vw;
+  min-height: 55vh;
+  margin: auto;
+  margin-top: 5vh;
+  .score-entry-title {
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+    background-color: $tertiary-color;
+    min-width: 60vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 2vh;
+    .column-title {
+      padding: 3vh;
+      font-weight: 900;
+      color: $secondary-color
+    }
+  }
+  .score-entry-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.15em;
+    padding: 0 3vh;
+    .user-entry {
+      font-weight: 700;
+    }
+    .score-entry {
+      color: $score-color;
+      font-weight: 500;
+    }
   }
 }
 
-.Game-exit-button {
-  min-width: 15vw;
-  min-height: 5vh;
-  margin: 0 1vw 0 0;
-  text-align: center;
-  border: none;
-  color: $secondary-color;
-  background-color: #0e2143;
-  &:active {
-    background-color: rgba($primary-color, 0.6);
-  }
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.User-input {
+.username-input {
   min-width: 74vw;
   min-height: 5vh;
   border-radius: 5px;
   background-color: rgba(white, 0.68);
   box-sizing: border-box;
-}
-
-.Home-button {
-  min-width: 74.2vw;
-  min-height: 5vh;
-  border-radius: 5px;
+  border: 1px solid $primary-color;
   margin: 2vh;
-  background-color: $primary-color;
-  color: $secondary-color;
-  &:active {
-    background-color: rgba($primary-color, 0.6);
-  }
-  &:disabled {
-    background-color: rgba($primary-color, 0.4);
-  }
 }
 
-.Error-text {
+.error-text {
   font-size: 0.75em;
   text-align: center;
-  color: red;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  color: $error-text;
 }

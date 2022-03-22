@@ -26,21 +26,21 @@ class Scoreboard extends React.Component {
   render() {
     return (
       <>
-        <div className="Game-header">
+        <div className="exit-button-container">
           <GameButton
             id="exit"
             title={STRINGS.EXIT}
-            buttonType="Game-exit-button"
+            buttonType="interaction-button exit-button"
             onClick={() => this.goBack()}
           />
         </div>
-        <header className="App-header">
+        <header className="app-header scoreboard-header">
           <h1>{STRINGS.HIGH_SCORES}</h1>
         </header>
-        <div className="Score-body">
-          <div className="Score-entry-title">
-            <span className="title">{STRINGS.PLAYER}</span>
-            <span className="title">{STRINGS.SCORE}</span>
+        <div className="score-container">
+          <div className="score-entry-title">
+            <span className="column-title">{STRINGS.PLAYER}</span>
+            <span className="column-title">{STRINGS.SCORE}</span>
           </div>
           {this.state.allHighScores.map((entry, key) => {
             return <ScoreboardEntry key={key} id={key} scoreEntry={entry} />;
