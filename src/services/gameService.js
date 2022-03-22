@@ -1,5 +1,5 @@
-import { NUMBERS, STRINGS } from '@utils/constants.js';
-import DataPersistanceService from '@services/dataPersistanceService';
+import { NUMBERS, STRINGS } from '../utils/constants.js';
+import DataPersistanceService from '../services/dataPersistanceService';
 
 class GameService {
   constructor(score, isGreen) {

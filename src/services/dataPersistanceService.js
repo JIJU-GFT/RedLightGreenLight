@@ -1,4 +1,4 @@
-import { STRINGS, NUMBERS } from '@utils/constants.js';
+import { STRINGS, NUMBERS } from '../utils/constants.js';
 class DataPersistanceService {
   // Store username
   static saveUserName(username) {
@@ -25,9 +25,8 @@ class DataPersistanceService {
 
   // Load existing user data
   static loadUserData(username) {
-    return JSON.parse(
-      window.localStorage.getItem(STRINGS.USER_PREFIX + username)
-    );
+    let userData = window.localStorage.getItem(STRINGS.USER_PREFIX + username);
+    return userData && JSON.parse(userData);
   }
 
   // Save the status of the green light
@@ -72,9 +71,8 @@ class DataPersistanceService {
 
   // Load leaderboards
   static loadLeaderboard() {
-    return (
-      JSON.parse(window.localStorage.getItem(STRINGS.SCORE_LEADERBOARD)) || []
-    );
+    let scoreboard = window.localStorage.getItem(STRINGS.SCORE_LEADERBOARD);
+    return (scoreboard && JSON.parse(scoreboard)) || [];
   }
 }
 
