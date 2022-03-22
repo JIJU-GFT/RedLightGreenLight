@@ -1,3 +1,6 @@
+import { NUMBERS, STRINGS } from '../utils/constants.js';
+import DataPersistanceService from '../services/dataPersistanceService';
+
 class GameService {
   constructor(score, isGreen) {
     // Get score and previous light state, set max and min time
@@ -15,19 +18,18 @@ class GameService {
 
   // Update timer according to score and adding ±1500 ms variation
   updateTimer() {
-    var randomVariation = Math.round(Math.random() * 1500);
-    var isNegative = Math.random() < 0.5;
+    let randomVariation = Math.round(
+      Math.random() * NUMBERS.GAME_TIMEOUT_VARIATION
+    );
+    let isNegative = Math.random() < NUMBERS.RANDOM_NEGATIVE;
 
     if (isNegative) {
       randomVariation = -randomVariation;
     }
 
     this.timeoutGreenLight =
-      Math.max(this.max - this.score * 100, this.min) + randomVariation;
-
-    // console.log("MS Variation", randomVariation);
-    // console.log("Negative", isNegative);
-    // console.log("MS", this.timeoutGreenLight);
+      Math.max(this.max - this.score * NUMBERS.SCORE_MILLISECONDS, this.min) +
+      randomVariation;
   }
 
   // Set the score
@@ -70,12 +72,12 @@ class GameService {
 
   // Change green light status
   changeGreenLight() {
-    localStorage.setItem("greenLight", false);
+    DataPersistanceService.setGreenLight(false);
   }
 
   // Change red light status
   changeRedLight() {
-    localStorage.setItem("greenLight", true);
+    DataPersistanceService.setGreenLight(true);
   }
 }
 
@@ -83,7 +85,7 @@ class GameService {
 const setStorageItem = localStorage.setItem;
 
 localStorage.setItem = function (key, value) {
-  const event = new Event("itemInserted");
+  const event = new Event(STRINGS.ITEM_SET);
 
   event.key = key;
   event.value = value;

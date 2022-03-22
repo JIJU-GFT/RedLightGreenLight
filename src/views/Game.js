@@ -1,14 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import redLight from "@images/redlight.png";
-import greenLight from "@images/greenlight.png";
+import redLight from '../assets/images/redlight.png';
+import greenLight from '../assets/images/greenlight.png';
 
-import GameButton from "@components/GameButton.js";
-import GameService from "@services/gameService.js";
-import { withRouter } from "../services/withRouter";
+import GameButton from '../components/GameButton.js';
+import GameService from '../services/gameService.js';
+import { withRouter } from '../services/withRouter';
 
-var service;
+import { NUMBERS, STRINGS } from '../utils/constants.js';
+import DataPersistanceService from '../services/dataPersistanceService.js';
+
+let service;
 
 // Game view
 class Game extends React.Component {
@@ -16,10 +19,10 @@ class Game extends React.Component {
     super(props);
     // We initialize the state
     this.state = {
-      username: localStorage.getItem("username"),
-      score: 0,
-      highScore: 0,
-      lastClicked: "none",
+      username: DataPersistanceService.loadUserName(STRINGS.USERNAME),
+      score: NUMBERS.ZERO,
+      highScore: NUMBERS.ZERO,
+      lastClicked: STRINGS.NONE,
       isGreen: true,
     };
 
@@ -31,13 +34,15 @@ class Game extends React.Component {
 
   // We use the lifecycle hook to load the saved scores and game state
   componentDidMount() {
-    var localUserData =
-      localStorage.getItem(this.state.username) &&
-      JSON.parse(localStorage.getItem(this.state.username));
+    let localUserData = DataPersistanceService.loadUserData(
+      this.state.username
+    );
 
-    var localScore = localUserData ? localUserData.score : 0;
-    var localHighestScore = localUserData ? localUserData.highScore : 0;
-    var localTrafficLightState = localUserData ? localUserData.isGreen : true;
+    let localScore = localUserData ? localUserData.score : NUMBERS.ZERO;
+    let localHighestScore = localUserData
+      ? localUserData.highScore
+      : NUMBERS.ZERO;
+    let localTrafficLightState = localUserData ? localUserData.isGreen : true;
 
     this.setState({
       score: localScore,
@@ -46,46 +51,48 @@ class Game extends React.Component {
     });
 
     service = new GameService(localScore, localTrafficLightState);
-    window.addEventListener("itemInserted", (e) => this.storageChanged(e));
+    window.addEventListener(STRINGS.ITEM_SET, this.storageChanged);
   }
 
   //  We use the lifecycle hook to store the data when the game is updated
   componentDidUpdate(prevProps, prevState) {
     // We compare previous and current state to prevent unexpected triggers due to React lifecycle
-    if (prevState.isGreen != this.state.isGreen) {
-      this.state.isGreen ? service.startGreenTimer() : service.startRedTimer();
+    let stateHasChanged = prevState.isGreen !== this.state.isGreen;
+
+    if (stateHasChanged && this.state.isGreen) {
+      service.startGreenTimer();
+    } else if (stateHasChanged && !this.state.isGreen) {
+      service.startRedTimer();
     }
-
-    /**
-     * ASK IF ITS REQUIRED TO STOP THE GAME AFTER LOSING ALL THE POINTS.
-     * IF THE GAME SHOULD STOP, UNCOMMENT THE NEXT CONDITIONAL
-     *
-     * CURRENTLY THE GAME CONTINUES AFTER LOSING ALL THE POINTS.
-     */
-    // if (!prevState.isGreen && !this.state.isGreen) {
-    //   service.stopAllTimers();
-    // }
-
     this.saveGame();
   }
 
   // We stop all timers on exit or close
   componentWillUnmount() {
     service.stopAllTimers();
+    window.removeEventListener(STRINGS.ITEM_SET, this.storageChanged);
   }
 
   // Logic to handle the user's clicks
   handleClick(buttonPressed) {
-    let step = buttonPressed == 0 ? "Left" : "Right";
+    let step =
+      buttonPressed === NUMBERS.STEP_LEFT_ID
+        ? STRINGS.STEP_LEFT_TEXT
+        : STRINGS.STEP_RIGHT_TEXT;
     let score = this.state.score;
     let highest = this.state.highScore;
 
     if (this.state.isGreen) {
-      this.state.lastClicked.localeCompare(step) === 0 && this.state.score > 0
-        ? score--
-        : score++;
+      if (
+        this.state.lastClicked.localeCompare(step) === NUMBERS.ZERO &&
+        this.state.score > NUMBERS.ZERO
+      ) {
+        score--;
+      } else {
+        score++;
+      }
     } else {
-      score = 0;
+      score = NUMBERS.ZERO;
     }
 
     if (score > highest) {
@@ -111,56 +118,58 @@ class Game extends React.Component {
       highScore: this.state.highScore,
       isGreen: this.state.isGreen,
     };
-    localStorage.setItem(this.state.username, JSON.stringify(userData));
+    DataPersistanceService.saveUserData(this.state.username, userData);
+    DataPersistanceService.saveHighScore(
+      this.state.username,
+      this.state.highScore
+    );
   }
 
   // Listen to the trafficLight status in localStorage
   storageChanged(e) {
-    var eventKey = e.key;
-    if (eventKey.localeCompare("greenLight") == 0) {
-      this.setState({ isGreen: e.value });
+    if (e.key) {
+      let eventKey = e.key;
+      if (eventKey.localeCompare(STRINGS.GREEN_LIGHT) === NUMBERS.ZERO) {
+        this.setState({ isGreen: e.value });
+      }
     }
   }
 
   render() {
     return (
-      <div className="Home">
-        <div className="Game-header">
+      <>
+        <div className="exit-button-container">
           <GameButton
-            title="Exit"
-            buttonType="Game-exit-button"
+            title={STRINGS.EXIT}
+            buttonType="interaction-button exit-button"
             onClick={() => {
-              this.props.navigate("/Home");
+              this.props.navigate('/Home');
             }}
           />
         </div>
-        <center>
-          <h3>Hi, {this.state.username}.</h3>
-          <h3>Highest Score: {this.state.highScore}.</h3>
-        </center>
-        <header className="App-header">
+        <h3>Hi, {this.state.username}.</h3>
+        <h3>Highest Score: {this.state.highScore}.</h3>
+        <header className="traffic-light-container">
           {this.state.isGreen ? (
-            <img src={greenLight} className="App-logo" alt="logo" />
+            <img src={greenLight} className="traffic-light" alt="green light" />
           ) : (
-            <img src={redLight} className="App-logo" alt="logo" />
+            <img src={redLight} className="traffic-light" alt="red light" />
           )}
-        </header>
-        <center>
           <h3>Score: {this.state.score}.</h3>
-        </center>
-        <div className="Game-body">
+        </header>
+        <div className="game-buttons-container">
           <GameButton
-            title="Left"
-            buttonType="Game-button"
-            onClick={() => this.handleClick(0)}
+            title={STRINGS.STEP_LEFT_TEXT}
+            buttonType="interaction-button game-button"
+            onClick={() => this.handleClick(NUMBERS.STEP_LEFT_ID)}
           />
           <GameButton
-            title="Right"
-            buttonType="Game-button"
-            onClick={() => this.handleClick(1)}
+            title={STRINGS.STEP_RIGHT_TEXT}
+            buttonType="interaction-button game-button"
+            onClick={() => this.handleClick(NUMBERS.STEP_RIGHT_ID)}
           />
         </div>
-      </div>
+      </>
     );
   }
 }

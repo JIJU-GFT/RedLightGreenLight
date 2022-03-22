@@ -1,11 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import { STRINGS } from '../utils/constants.js';
 
 const GameInput = ({ sendDataToParent }) => {
   return (
     <input
-      className="User-input"
-      placeholder="Username"
+      className="username-input"
+      placeholder={STRINGS.USERNAME}
       onChange={sendDataToParent}
     />
   );
